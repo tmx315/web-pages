@@ -31,8 +31,5 @@ yarn.lock
 .idea
 *.iml
 
-# docs
-Docs-Firefly/
-
 cache/
 fuwari/

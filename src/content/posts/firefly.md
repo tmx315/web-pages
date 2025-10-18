@@ -65,41 +65,29 @@ draft: false
 
 ## ⚙️ 配置系统详解
 
-- **模块化配置**: 每个功能模块都有独立的配置文件，便于管理和维护
-- **站点配置**：网站基础信息、主题色彩、图标、语言设置
-- **用户资料配置**：头像、姓名、简介、社交链接
-- **功能配置**：评论系统、公告、许可证、页脚、统计
-- **样式配置**：代码高亮、樱花特效、字体管理
-- **布局配置**：侧边栏、导航栏组件管理
-- **组件配置**：音乐播放器、看板娘、广告、友链
-- **页脚HTML**：自定义HTML内容注入
+- **主配置文件**: 站点信息、主题配置、图标配置、功能开关等
+- **模块化配置**: 每个配置文件的详细功能说明
+- **字体配置**：字体管理、预加载优化、字体回退
+- **友链配置**：数据结构、权重系统、启用控制
+- **广告配置**：两种广告类型、配置选项
+- **看板娘配置**：Spine/Live2D模型配置
+- **侧边栏配置**：组件管理、布局控制、响应式配置
+- **导航栏配置**：多级菜单、链接类型、图标集成
 
 
 ## 📖 配置说明
-
-> 📚 **详细配置文档**: 查看 [Firefly使用文档](https://docs-firefly.cuteleaf.cn/) 获取完整的配置指南
 
 ### 配置文件结构
 
 ```
 src/
+├── config.ts                 # 主配置文件
 ├── config/
-│   ├── index.ts              # 配置索引文件
-│   ├── siteConfig.ts         # 站点基础配置
-│   ├── profileConfig.ts      # 用户资料配置
-│   ├── commentConfig.ts      # 评论系统配置
-│   ├── announcementConfig.ts # 公告配置
-│   ├── licenseConfig.ts      # 许可证配置
-│   ├── footerConfig.ts       # 页脚配置
-│   ├── FooterConfig.html     # 页脚HTML内容
-│   ├── umamiConfig.ts        # 统计配置
-│   ├── expressiveCodeConfig.ts # 代码高亮配置
-│   ├── sakuraConfig.ts       # 樱花特效配置
-│   ├── fontConfig.ts         # 字体配置
-│   ├── sidebarConfig.ts      # 侧边栏布局配置
-│   ├── navBarConfig.ts       # 导航栏配置
-│   ├── musicConfig.ts        # 音乐播放器配置
-│   ├── pioConfig.ts          # 看板娘配置
-│   ├── adConfig.ts           # 广告配置
-│   └── friendsConfig.ts      # 友链配置
+│   ├── adConfig.ts          # 广告配置
+│   ├── fontConfig.ts        # 字体配置
+│   ├── friendsConfig.ts     # 友链配置
+│   ├── navBarConfig.ts      # 导航栏配置
+│   ├── pioConfig.ts         # 看板娘配置
+│   └── sidebarConfig.ts     # 侧边栏配置
+└── FooterConfig.html        # 页脚HTML内容
 ```

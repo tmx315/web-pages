@@ -74,7 +74,7 @@ export default defineConfig({
 			plugins: [
 				pluginCollapsibleSections(),
 				pluginLineNumbers(),
-				pluginLanguageBadge(),
+				// pluginLanguageBadge(),
 				pluginCustomCopyButton(),
 			],
 			defaultProps: {
@@ -118,6 +118,9 @@ export default defineConfig({
 					return false;
 				}
 				if (pathname === '/guestbook/' && !siteConfig.pages.guestbook) {
+					return false;
+				}
+				if (pathname === '/bangumi/' && !siteConfig.pages.bangumi) {
 					return false;
 				}
 

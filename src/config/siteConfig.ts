@@ -177,6 +177,15 @@ export const siteConfig: SiteConfig = {
     },
   },
 
+  // 目录功能
+  toc: {
+    // 目录功能开关
+    enable: true,
+    // 目录深度，1-3，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
+    // depth在新版已弃用
+    depth: 3,
+  },
+
   // 字体配置
   // 在src/config/fontConfig.ts中配置具体字体
   font: fontConfig,

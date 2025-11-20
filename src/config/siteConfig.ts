@@ -127,7 +127,7 @@ export const siteConfig: SiteConfig = {
           "In Finalized Morrow, I Full Bloom",
         ],
         typewriter: {
-          enable: true, // 启用副标题打字机效果
+          enable: false, // 启用副标题打字机效果
           speed: 100, // 打字速度（毫秒）
           deleteSpeed: 50, // 删除速度（毫秒）
           pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
@@ -175,15 +175,6 @@ export const siteConfig: SiteConfig = {
       opacity: 0.8, // 壁纸透明度
       blur: 1, // 背景模糊程度
     },
-  },
-
-  // 目录功能
-  toc: {
-    // 目录功能开关
-    enable: true,
-    // 目录深度，1-3，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
-    // depth在新版已弃用
-    depth: 3,
   },
 
   // 字体配置

@@ -1,14 +1,15 @@
 ---
-import BackToTop from "@components/common/controls/BackToTop.astro";
 import OverlayWallpaper from "@components/interactive/OverlayWallpaper.astro";
 import Footer from "@components/layout/Footer.astro";
+import LeftSideBar from "@components/layout/LeftSideBar.astro";
 import Navbar from "@components/layout/Navbar.astro";
+import RightSideBar from "@components/layout/RightSideBar.astro";
 import SideBar from "@components/layout/SideBar.astro";
 import Live2DWidget from "@components/widget/Live2DWidget.astro";
 import SpineModel from "@components/widget/SpineModel.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
-import FloatingTOC from "@/components/common/controls/FloatingTOC.astro";
+import FloatingControls from "@/components/common/controls/FloatingControls.astro";
 import TypewriterText from "@/components/content/TypewriterText.astro";
 import IconifyLoader from "@/components/misc/IconifyLoader.astro";
 import ImageWrapper from "@/components/misc/ImageWrapper.astro";
@@ -377,7 +378,7 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
                     <>
                         {/* 左侧边栏 */}
                         {sidebarConfig.hasLeftComponents && (sidebarConfig.mobileShowSidebar || sidebarConfig.tabletShowSidebar || sidebarConfig.desktopShowSidebar) && (
-                            <SideBar side="left" class={`${sidebarClass} ${transparentClass}`} headings={headings}></SideBar>
+                            <LeftSideBar class={`${sidebarClass} ${transparentClass}`} headings={headings}></LeftSideBar>
                         )}
                     </>
                 ) : (
@@ -416,7 +417,7 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
                 <>
                     <div id="right-sidebar-static" class="contents">
                         {sidebarConfig.isBothSidebars && sidebarConfig.hasRightComponents && (sidebarConfig.mobileShowSidebar || sidebarConfig.tabletShowSidebar || sidebarConfig.desktopShowSidebar) && (
-                            <SideBar side="right" class={`${rightSidebarClass} ${transparentClass}`} headings={headings}></SideBar>
+                            <RightSideBar class={`${rightSidebarClass} ${transparentClass}`} headings={headings}></RightSideBar>
                         )}
                     </div>
                     <div id="right-sidebar-dynamic" class="hidden"></div>
@@ -424,7 +425,7 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
             ) : (
                 <div id="right-sidebar-dynamic" class="contents">
                     {sidebarConfig.isBothSidebars && sidebarConfig.hasRightComponents && (sidebarConfig.mobileShowSidebar || sidebarConfig.tabletShowSidebar || sidebarConfig.desktopShowSidebar) && (
-                        <SideBar side="right" class={`${rightSidebarClass} ${transparentClass}`} headings={headings}></SideBar>
+                        <RightSideBar class={`${rightSidebarClass} ${transparentClass}`} headings={headings}></RightSideBar>
                     )}
                 </div>
             )}
@@ -434,14 +435,12 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
             </div>
         </div>
 
-        <BackToTop></BackToTop>
         <SpineModel></SpineModel>
         {live2dModelConfig.enable && <Live2DWidget config={live2dModelConfig} />}
     </div>
 </div>
 
-<!-- 悬浮TOC组件 -->
-<FloatingTOC headings={headings}></FloatingTOC>
+<FloatingControls headings={headings} />
 
 
 </Layout>
@@ -453,7 +452,7 @@ const navbarWidthFull = siteConfig.navbar.widthFull ?? false;
       display: none !important;
     }
     
-    /* 同时调整网格布局 */
+    /* 同时调整网格布局为两列 */
     #main-grid {
       grid-template-columns: 17.5rem 1fr !important;
     }

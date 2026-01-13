@@ -14,7 +14,7 @@ import { i18n } from "@/i18n/translation";
 
 <script is:raw is:inline>
   function backToHome() {
-    const url = window.__BASE_URL__;
+    const url = "/";
     if (window.swup) {
       window.swup.navigate(url);
     } else {
@@ -30,7 +30,7 @@ import { i18n } from "@/i18n/translation";
 
     // Check if we are on the home page
     const path = window.location.pathname.replace(/\/$/, "") || "/";
-    const isHome = path === import.meta.env.BASE_URL || path === (import.meta.env.BASE_URL || "/")+"index.html";
+    const isHome = path === "/" || path === "/index.html"; 
     
     if (isHome) {
       btn.classList.add("hide");

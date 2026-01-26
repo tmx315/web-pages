@@ -63,7 +63,7 @@ export class WidgetManager {
 			components = allComponents.filter((component) => component.enable);
 		}
 
-		return components;
+		return components.sort((a, b) => a.order - b.order);
 	}
 
 	/**
@@ -140,6 +140,10 @@ export class WidgetManager {
 	 * @param index 组件在列表中的索引
 	 */
 	getAnimationDelay(component: WidgetComponentConfig, index: number): number {
+		if (component.animationDelay !== undefined) {
+			return component.animationDelay;
+		}
+
 		if (this.config.defaultAnimation.enable) {
 			return (
 				this.config.defaultAnimation.baseDelay +
@@ -161,7 +165,12 @@ export class WidgetManager {
 		sidebar: "left" | "right",
 		_index: number,
 	): string {
-		const classes: string[] = ["onload-animation"];
+		const classes: string[] = [];
+
+		// 添加基础类名
+		if (component.class) {
+			classes.push(component.class);
+		}
 
 		// 双侧边栏模式下，右侧边栏的组件在平板端自动隐藏
 		// 使用 Tailwind 标准断点：lg(1024px) 以下全部隐藏
@@ -179,8 +188,14 @@ export class WidgetManager {
 	 */
 	getComponentStyle(component: WidgetComponentConfig, index: number): string {
 		const styles: string[] = [];
+
+		// 添加自定义样式
+		if (component.style) {
+			styles.push(component.style);
+		}
+
+		// 添加动画延迟样式
 		const animationDelay = this.getAnimationDelay(component, index);
-		
 		if (animationDelay > 0) {
 			styles.push(`animation-delay: ${animationDelay}ms`);
 		}
@@ -285,6 +300,23 @@ export class WidgetManager {
 		const component = allComponents.find((c) => c.type === componentType);
 		if (component) {
 			component.enable = enable;
+		}
+	}
+
+	/**
+	 * 重新排序组件
+	 * @param componentType 组件类型
+	 * @param newOrder 新的排序值
+	 */
+	reorderComponent(componentType: WidgetComponentType, newOrder: number): void {
+		const allComponents = [
+			...this.config.leftComponents,
+			...this.config.rightComponents,
+		];
+
+		const component = allComponents.find((c) => c.type === componentType);
+		if (component) {
+			component.order = newOrder;
 		}
 	}
 

@@ -77,8 +77,6 @@ export const ru: Translation = {
 
 	[Key.author]: "Автор",
 	[Key.publishedAt]: "Опубликовано",
-	[Key.updatedAt]: "Обновлено",
-	[Key.readTime]: "Время чтения",
 	[Key.license]: "Лицензия",
 	[Key.bangumi]: "Бангуми",
 
@@ -209,7 +207,7 @@ export const ru: Translation = {
 
 	// Настройки баннера
 	[Key.bannerSettings]: "Настройки баннера",
-	[Key.bannerTitle]: "Заголовок главного баннера",
+	[Key.bannerTitle]: "Заголовок баннера",
 	[Key.wavesAnimation]: "Анимация волн",
 
 	// Макет списка сообщений

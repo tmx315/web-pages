@@ -3,7 +3,7 @@ title: "雨云全自动签到"
 description: "想白嫖雨云服务器，但又不想签到，不妨看看（Rainyun-Qiandao-V2）这个项目，特别适合无服务器，又不想签到的"
 published: 2026-02-14
 tags: ["雨云", "自动签到", "Python 工具", "Selenium"]
-category: "工具教程"
+category: "教程"
 draft: false
 pinned: false
 author: "孟轩科技"

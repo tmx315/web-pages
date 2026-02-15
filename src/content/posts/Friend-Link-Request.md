@@ -3,7 +3,7 @@ title: "友情链接申请指南"
 description: "如何申请与本站交换友情链接，包含申请要求、格式规范和审核流程"
 published: 2026-02-08
 tags: ["guide", "friend-link", "友链"]
-category: "指南"
+category: "教程"
 draft: false
 pinned: false
 author: "孟轩科技"

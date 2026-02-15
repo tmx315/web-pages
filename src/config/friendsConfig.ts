@@ -85,9 +85,8 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "Weiwei's blog",
-		imgurl:
-			"https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
-		desc: "世界本就浑浊，罪与爱同歌",
+		imgurl: "https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
+		desc: "耐心是生活的关键",
 		siteurl: "https://www.lov3u.top/",
 		tags: ["友情"],
 		weight: 1,

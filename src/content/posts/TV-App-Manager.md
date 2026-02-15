@@ -3,7 +3,7 @@ title: "TV应用管家"
 description: "TV、盒子、车机 最推荐的免费实用工具，软件一键管理，支持 adb/root 卸载系统软件，支持挂载云盘"
 published: 2026-02-15
 tags: ["TV", "盒子", "车机", "免费", "实用", "工具"]
-category: "软件分享"
+category: "分享"
 draft: false
 pinned: false
 author: "孟轩科技"

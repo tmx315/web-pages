@@ -3,7 +3,7 @@ title: "孟轩网公益云盘"
 description: "免费、稳定、不限速、注册5TB容量的云盘"
 published: 2026-02-15
 tags: ["免费", "云盘", "公益", "网站"]
-category: "公益"
+category: "分享"
 draft: false
 pinned: false
 author: "孟轩科技"

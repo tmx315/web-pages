@@ -25,7 +25,7 @@ sourceLink: "https://blog.mxw2024.top/posts/Website-traffic/"
 ![](./images/2026-02-14-204231.png)
 ![](./images/2026-02-14-204440.png)
 ![](./images/2026-02-14-204453.png)
-![](./images/2026-02-14 204504.png)
+![](./images/2026-02-14-204504.png)
 ![](./images/2026-02-14-204521.png)
 ![](./images/2026-02-14-204539.png)
 ![](./images/2026-02-14-204553.png)

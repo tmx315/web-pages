@@ -75,6 +75,8 @@ export const zh_TW: Translation = {
 
 	[Key.author]: "作者",
 	[Key.publishedAt]: "發布於",
+	[Key.updatedAt]: "更新於",
+	[Key.readTime]: "閱讀時長",
 	[Key.license]: "許可協議",
 	[Key.bangumi]: "番組計劃",
 
@@ -200,7 +202,7 @@ export const zh_TW: Translation = {
 
 	// 橫幅設置
 	[Key.bannerSettings]: "橫幅設置",
-	[Key.bannerTitle]: "橫幅標題",
+	[Key.bannerTitle]: "首頁橫幅標題",
 	[Key.wavesAnimation]: "水波紋動畫",
 
 	// 文章佈局

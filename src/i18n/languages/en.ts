@@ -77,8 +77,6 @@ export const en: Translation = {
 
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
-	[Key.updatedAt]: "Updated at",
-	[Key.readTime]: "Read time",
 	[Key.license]: "License",
 	[Key.bangumi]: "Bangumi",
 
@@ -208,7 +206,7 @@ export const en: Translation = {
 
 	// Banner Settings
 	[Key.bannerSettings]: "Banner Settings",
-	[Key.bannerTitle]: "Home Banner Title",
+	[Key.bannerTitle]: "Banner Title",
 	[Key.wavesAnimation]: "Waves Animation",
 
 	// Post List Layout

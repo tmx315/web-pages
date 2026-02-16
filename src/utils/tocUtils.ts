@@ -41,20 +41,18 @@ export class TOCManager {
 	/**
 	 * 查找所有标题
 	 */
-	private getAllHeadings(): HTMLElement[] {
+	private getAllHeadings(): NodeListOf<HTMLElement> {
 		const contentContainer = this.getContentContainer();
-		if (!contentContainer) {
-			return [];
+		if (contentContainer) {
+			return contentContainer.querySelectorAll("h1, h2, h3, h4, h5, h6");
 		}
-		return Array.from(
-			contentContainer.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-		);
+		return document.querySelectorAll("h1, h2, h3, h4, h5, h6");
 	}
 
 	/**
 	 * 计算最小深度
 	 */
-	private calculateMinDepth(headings: HTMLElement[]): number {
+	private calculateMinDepth(headings: NodeListOf<HTMLElement>): number {
 		let minDepth = 10;
 		headings.forEach((heading) => {
 			const depth = Number.parseInt(heading.tagName.charAt(1), 10);
@@ -66,22 +64,11 @@ export class TOCManager {
 	/**
 	 * 过滤标题
 	 */
-	private filterHeadings(headings: HTMLElement[]): HTMLElement[] {
+	private filterHeadings(headings: NodeListOf<HTMLElement>): HTMLElement[] {
 		return Array.from(headings).filter((heading) => {
 			const depth = Number.parseInt(heading.tagName.charAt(1), 10);
 			return depth < this.minDepth + this.maxLevel;
 		});
-	}
-
-	/**
-	 * 获取标题的纯文本内容（排除 script/style 标签的文本）
-	 */
-	private getCleanTextContent(element: HTMLElement): string {
-		const clone = element.cloneNode(true) as HTMLElement;
-		for (const el of clone.querySelectorAll("script, style")) {
-			el.remove();
-		}
-		return clone.textContent || "";
 	}
 
 	/**
@@ -135,7 +122,7 @@ export class TOCManager {
 				heading1Count++;
 			}
 
-			let headingText = this.getCleanTextContent(heading)
+			let headingText = (heading.textContent || "")
 				.replace(/#+\s*$/, "")
 				.trim();
 

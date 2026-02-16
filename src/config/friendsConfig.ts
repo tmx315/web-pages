@@ -30,7 +30,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "晚梦云科技官网",
-		imgurl: "https://wmy2025.cn/wmykj.png",
+		imgurl: "https://wmy2025.cn/logo.png",
 		desc: "晚梦云科技工作室成立于2022年是，河南省林州市领先的软件开发团队，专注于为企业提供定制软件开发、移动应用开发和大数据分析服务。",
 		siteurl: "https://wmy2025.cn/",
 		tags: ["友情"],

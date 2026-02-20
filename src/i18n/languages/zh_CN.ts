@@ -75,8 +75,6 @@ export const zh_CN: Translation = {
 
 	[Key.author]: "作者",
 	[Key.publishedAt]: "发布于",
-	[Key.updatedAt]: "更新于",
-	[Key.readTime]: "阅读时长",
 	[Key.license]: "许可协议",
 	[Key.bangumi]: "番组计划",
 
@@ -200,7 +198,7 @@ export const zh_CN: Translation = {
 
 	// 横幅设置
 	[Key.bannerSettings]: "横幅设置",
-	[Key.bannerTitle]: "首页横幅标题",
+	[Key.bannerTitle]: "横幅标题",
 	[Key.wavesAnimation]: "水波纹动画",
 
 	// 文章布局

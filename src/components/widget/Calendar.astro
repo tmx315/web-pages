@@ -104,7 +104,7 @@ const postUrlPrefix = url("/posts/");
   </div>
 </WidgetLayout>
 
-<script is:inline data-swup-ignore-script define:vars={{ monthNames, weekDays, yearText, currentLang, calendarDataUrl, postUrlPrefix }}>
+<script is:inline define:vars={{ monthNames, weekDays, yearText, currentLang, calendarDataUrl, postUrlPrefix }}>
   // State variables
   let displayYear = new Date().getFullYear();
   let displayMonth = new Date().getMonth();
@@ -115,14 +115,8 @@ const postUrlPrefix = url("/posts/");
 
   async function fetchData() {
     try {
-      // 使用缓存避免 swup 导航时重复请求
-      if (window.__calendarCache) {
-        allPostsData = window.__calendarCache;
-      } else {
-        const response = await fetch(calendarDataUrl);
-        allPostsData = await response.json();
-        window.__calendarCache = allPostsData;
-      }
+      const response = await fetch(calendarDataUrl);
+      allPostsData = await response.json();
       
       // Reconstruct postDateMap and availableYears
       postDateMap = {};
@@ -328,14 +322,14 @@ const postUrlPrefix = url("/posts/");
     container.innerHTML = availableYears.map(year => {
       const isCurrent = year === displayYear;
       const classes = [
-        "p-2 text-center text-sm rounded cursor-pointer hover:bg-(--btn-plain-bg-hover) transition-colors relative"
+        "p-2 text-center text-sm rounded cursor-pointer hover:bg-(--btn-plain-bg-hover) transition-colors"
       ];
       if (isCurrent) {
         classes.push("text-(--primary) font-bold bg-(--btn-plain-bg-hover)");
       } else {
         classes.push("text-neutral-700 dark:text-neutral-300");
       }
-      return `<div class="${classes.join(' ')}" data-year="${year}">${year}<span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-(--primary)"></span></div>`;
+      return `<div class="${classes.join(' ')}" data-year="${year}">${year}</div>`;
     }).join('');
 
     container.querySelectorAll('[data-year]').forEach(el => {
@@ -491,18 +485,17 @@ const postUrlPrefix = url("/posts/");
 </script>
 
 <style>
-  :global(.calendar-day) {
+  .calendar-day {
     transition: all 0.2s ease;
     min-height: 32px;
   }
-
-  :global(.calendar-day[data-has-post="true"]:hover) {
+  
+  .calendar-day[data-has-post="true"]:hover {
     transform: translateY(-2px);
   }
 
-  /* 自定义选中日期样式 */
-  :global(.calendar-day-selected) {
-    background-color: var(--btn-regular-bg);
-    border-radius: 0.25rem;
+  /* 自定义选中日期样式，替代 bg-opacity-10 */
+  .calendar-day-selected {
+    background-color: oklch(from var(--primary) l c h / 0.1);
   }
 </style>

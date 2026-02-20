@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "miyo建站",
+		imgurl: "https://nos.netease.com/ysf/7a157d315551eb6338f24a947e60cf20.jpg",
+		desc: "无需服务器和域名，快速生成可访问站点",
+		siteurl: "https://miyo.hyperspark.cn",
+		tags: ["友情"],
+		weight: 9,
+		enabled: true,
+	},
+	{
 		title: "晚梦云科技官网",
 		imgurl: "https://wmy2025.cn/logo.png",
 		desc: "晚梦云科技工作室成立于2022年是，河南省林州市领先的软件开发团队，专注于为企业提供定制软件开发、移动应用开发和大数据分析服务。",

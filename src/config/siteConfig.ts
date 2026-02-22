@@ -40,6 +40,10 @@ export const siteConfig: SiteConfig = {
 		defaultMode: "system",
 	},
 
+	// 页面整体宽度（单位：rem）
+	// 数值越大可以让页面内容区域更宽
+	pageWidth: 100,
+
 	// 网站Card样式配置
 	card: {
 		// 是否开启卡片边框和阴影，开启后让网站更有立体感
@@ -120,6 +124,9 @@ export const siteConfig: SiteConfig = {
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
 		bangumi: false,
 	},
+
+	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
+	categoryBar: true,
 
 	// 文章列表布局配置
 	postListLayout: {

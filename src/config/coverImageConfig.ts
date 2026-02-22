@@ -28,14 +28,9 @@ export const coverImageConfig: CoverImageConfig = {
 			"https://www.dmoe.cc/random.php",
 			"https://uapis.cn/api/v1/random/image?category=acg&type=pc",
 		],
-<<<<<<< HEAD
-		// API失败时的回退图片
-		fallback: "assets/images/loading.gif",
-=======
 		// API失败时的回退图片路径（相对于src目录或以/开头的public目录路径）
-		fallback: "assets/images/loading.gif",
->>>>>>> upstream/master
+		fallback: "assets/images/cover.avif",
 		// 是否显示加载动画
-		showLoading: true,
+		showLoading: false,
 	},
 };

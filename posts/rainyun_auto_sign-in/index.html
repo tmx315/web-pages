@@ -1445,27 +1445,75 @@ const todayText = "今天";
 })();</script></div></div> </div> <div class="footer col-span-1 onload-animation md:col-span-2 xl:col-start-2 xl:col-span-1"> <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div> <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6"> <div class="transition text-50 text-sm text-center"> <div class="mb-2"> <div><link rel="stylesheet" href="https://scdn.星.fun/icp.css">
 
 <style>
-    /* 备案号容器基础样式 */
+    /* 外层容器：统一盒模型，解决宽度计算偏差 */
     .beian {
-        display: block; /* 取消flex，改为块级元素 */
+        display: block;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        margin: 0 auto;
+        /* 修复手机端偏左：添加左右内边距，且在所有屏幕生效 */
+        padding: 0 12px; 
     }
-    /* 备案号组：强制一行展示 */
+
+    /* 备案号组：核心修复 */
     .beian-group {
         display: flex;
         align-items: center;
-        gap: 8px; /* 备案号之间的间距 */
-        flex-wrap: nowrap;
+        /* 关键修复1：设置对齐方式，防止容器有剩余空间时错误换行 */
+        align-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        row-gap: 6px;
+        width: 100%;
+        /* 移除内部padding，避免和外层容器叠加导致宽度不足 */
+        padding: 6px 0;
+        box-sizing: border-box;
     }
-    /* 雾备模块：单独一行，与备案号拉开垂直间距 */
+
+    /* 强制元素固定尺寸，确保挤压判断绝对精准 */
+    .beian-group a {
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: inline-block;
+    }
+
+    /* 雾备模块：与外层容器内边距对齐 */
     .github-badge {
         display: inline-flex;
         align-items: center;
-        margin-top: 8px; /* 垂直间距，可调整 */
+        margin: 8px 0 0 0;
     }
+
+    /* 图片统一尺寸 */
     .beian img {
         vertical-align: middle;
+        height: 22px;
+        width: auto;
+    }
+
+    /* 移动端适配：仅缩小间距和图片，不改变对齐逻辑 */
+    @media (max-width: 768px) {
+        .beian-group {
+            gap: 6px;
+            row-gap: 4px;
+        }
+        .beian img {
+            height: 20px;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .beian-group {
+            gap: 4px;
+        }
+        .beian img {
+            height: 18px;
+        }
     }
 </style>
+
 
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>
@@ -1476,33 +1524,32 @@ const todayText = "今天";
 	new LingQue.Monitor().init({id:"3KlOuZC0Fi3bgsEF",sendSuspicious:true,sendSpaPv:true});
 </script>
 <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.abbr.min.js" defer></script>
+
+
 <div class="beian">
-    
 	<div class="beian-group">
 		<a href="https://www.nekt.qzz.io/" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E5%90%88%E4%BD%9C&part2=%E7%86%B5%E7%9A%84%E5%B0%8F%E7%AB%99&style=green" alt="合作熵的小站" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%90%88%E4%BD%9C&part2=%E7%86%B5%E7%9A%84%E5%B0%8F%E7%AB%99&style=green" alt="合作熵的小站">
 		</a>
 		<a href="https://icp.gov.moe/?keyword=20268315" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E8%90%8CICP%E5%A4%87&part2=20268315%E5%8F%B7&style=gradientblue" alt="萌ICP备20268315号" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E8%90%8CICP%E5%A4%87&part2=20268315%E5%8F%B7&style=gradientblue" alt="萌ICP备20268315号">
 		</a>
 		<a href="https://icp.hentioe.dev/sites/20266916" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E5%96%B5ICP%E5%A4%87&part2=20266916%E5%8F%B7&style=aurorapurple" alt="喵ICP备20266916号" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%96%B5ICP%E5%A4%87&part2=20266916%E5%8F%B7&style=aurorapurple" alt="喵ICP备20266916号">
 		</a>
 		<a href="https://www.moicp.cn/keyword.php?type=魔ICP备2026823306号-1" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E9%AD%94ICP%E5%A4%87&part2=2026823306%E5%8F%B7-1&style=gradientblue" alt="魔ICP备2026823306号-1" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E9%AD%94ICP%E5%A4%87&part2=2026823306%E5%8F%B7-1&style=gradientblue" alt="魔ICP备2026823306号-1">
 		</a>
 		<a href="https://icp.sakura.ink/beian?code=2602230641" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E6%A8%B1ICP%E5%A4%87&part2=2602230641%E5%8F%B7&style=sunsetorange" alt="樱ICP备2602230641号" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E6%A8%B1ICP%E5%A4%87&part2=2602230641%E5%8F%B7&style=sunsetorange" alt="樱ICP备2602230641号">
 		</a>
-               <a href="https://icp.6uu.us/query.php?icp_number=%E5%85%83-58487" target="_blank" rel="noopener noreferrer">
-                        <img src="https://www.moicp.cn/preview.php?part1=%E5%85%83ICP%E5%A4%87&part2=%E5%85%83-58487&style=limegreen" alt="元ICP备元-58487" style="height: 20px;">
-               </a>
-
+		<a href="https://icp.6uu.us/query.php?icp_number=%E5%85%83-58487" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%85%83ICP%E5%A4%87&part2=%E5%85%83-58487&style=limegreen" alt="元ICP备元-58487">
+		</a>
 		<a href="https://icp.xnet.ren/beian/ICP-2026020315.html" target="_blank" rel="noopener noreferrer">
-			<img src="https://www.moicp.cn/preview.php?part1=%E4%BF%A1%E7%BD%91%E8%81%94%E7%9B%9F&part2=2026020315%E5%8F%B7&style=aurorapurple" alt="信网联盟2026020315号" style="height: 20px;">
+			<img src="https://www.moicp.cn/preview.php?part1=%E4%BF%A1%E7%BD%91%E8%81%94%E7%9B%9F&part2=2026020315%E5%8F%B7&style=aurorapurple" alt="信网联盟2026020315号">
 		</a>
 	</div>
-	
 	<div class="github-badge">
 		<span class="badge-subject">雾备</span>
 		<a style="color:#fff" href="https://icp.wudu.ltd/id.php?keyword=20260315" rel="external" target="_blank">

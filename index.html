@@ -1460,6 +1460,29 @@ const todayText = "今天";
   });
 })();</script></div></div> </div> <div class="footer col-span-1 onload-animation md:col-span-2 xl:col-start-2 xl:col-span-1"> <div class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"></div> <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6"> <div class="transition text-50 text-sm text-center"> <div class="mb-2"> <div><link rel="stylesheet" href="https://scdn.星.fun/icp.css">
 
+<style>
+    /* 备案号容器基础样式 */
+    .beian {
+        display: block; /* 取消flex，改为块级元素 */
+    }
+    /* 备案号组：强制一行展示 */
+    .beian-group {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* 备案号之间的间距 */
+        flex-wrap: nowrap;
+    }
+    /* 雾备模块：单独一行，与备案号拉开垂直间距 */
+    .github-badge {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 8px; /* 垂直间距，可调整 */
+    }
+    .beian img {
+        vertical-align: middle;
+    }
+</style>
+
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>
 	LA.init({id:"3KkEpLxmzacRhipz",ck:"3KkEpLxmzacRhipz",autoTrack:true,hashMode:true,screenRecord:true})
@@ -1470,21 +1493,25 @@ const todayText = "今天";
 </script>
 <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.abbr.min.js" defer></script>
 <div class="beian">
-	<a href="https://www.nekt.qzz.io/" target="_blank" rel="noopener noreferrer">
-		<img src="https://www.moicp.cn/preview.php?part1=%E5%90%88%E4%BD%9C&part2=%E7%86%B5%E7%9A%84%E5%B0%8F%E7%AB%99&style=green" alt="合作熵的小站" style="height: 20px;">
-	</a>
-	<a href="https://icp.gov.moe/?keyword=20268315" target="_blank" rel="noopener noreferrer">
-		<img src="https://www.moicp.cn/preview.php?part1=%E8%90%8CICP%E5%A4%87&part2=20268315%E5%8F%B7&style=gradientblue" alt="萌ICP备20268315号" style="height: 20px;">
-	</a>
-	<a href="https://icp.hentioe.dev/sites/20266916" target="_blank" rel="noopener noreferrer">
-		<img src="https://www.moicp.cn/preview.php?part1=%E5%96%B5ICP%E5%A4%87&part2=20266916%E5%8F%B7&style=aurorapurple" alt="喵ICP备20266916号" style="height: 20px;">
-	</a>
-	<a href="https://www.moicp.cn/keyword.php?type=魔ICP备2026823306号-1" target="_blank" rel="noopener noreferrer">
-		<img src="https://www.moicp.cn/preview.php?part1=%E9%AD%94ICP%E5%A4%87&part2=2026823306%E5%8F%B7-1&style=gradientblue" alt="魔ICP备2026823306号-1" style="height: 20px;">
-	</a>
-	<a href="https://icp.xnet.ren/beian/ICP-2026020315.html" target="_blank" rel="noopener noreferrer">
-		<img src="https://www.moicp.cn/preview.php?part1=%E4%BF%A1%E7%BD%91%E8%81%94%E7%9B%9F&part2=2026020315%E5%8F%B7&style=aurorapurple" alt="信网联盟2026020315号" style="height: 20px;">
-	</a>
+    
+	<div class="beian-group">
+		<a href="https://www.nekt.qzz.io/" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%90%88%E4%BD%9C&part2=%E7%86%B5%E7%9A%84%E5%B0%8F%E7%AB%99&style=green" alt="合作熵的小站" style="height: 20px;">
+		</a>
+		<a href="https://icp.gov.moe/?keyword=20268315" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E8%90%8CICP%E5%A4%87&part2=20268315%E5%8F%B7&style=gradientblue" alt="萌ICP备20268315号" style="height: 20px;">
+		</a>
+		<a href="https://icp.hentioe.dev/sites/20266916" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%96%B5ICP%E5%A4%87&part2=20266916%E5%8F%B7&style=aurorapurple" alt="喵ICP备20266916号" style="height: 20px;">
+		</a>
+		<a href="https://www.moicp.cn/keyword.php?type=魔ICP备2026823306号-1" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E9%AD%94ICP%E5%A4%87&part2=2026823306%E5%8F%B7-1&style=gradientblue" alt="魔ICP备2026823306号-1" style="height: 20px;">
+		</a>
+		<a href="https://icp.xnet.ren/beian/ICP-2026020315.html" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E4%BF%A1%E7%BD%91%E8%81%94%E7%9B%9F&part2=2026020315%E5%8F%B7&style=aurorapurple" alt="信网联盟2026020315号" style="height: 20px;">
+		</a>
+	</div>
+	
 	<div class="github-badge">
 		<span class="badge-subject">雾备</span>
 		<a style="color:#fff" href="https://icp.wudu.ltd/id.php?keyword=20260315" rel="external" target="_blank">

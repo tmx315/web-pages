@@ -5,7 +5,7 @@ import type { AdConfig } from "../types/config";
 // 广告配置1 - 纯图片广告（无边距）
 export const adConfig1: AdConfig = {
 	image: {
-		src: "assets/images/shang.webp",
+		src: "/assets/images/shang.webp",
 		alt: "推广：熵的小站",
 		link: "https://www.nekt.qzz.io/",
 		external:true,

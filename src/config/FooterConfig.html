@@ -1,1 +1,141 @@
-这里是HTML注入示例，你可以在这个文件中添加自定义的HTML内容
+<link rel="stylesheet" href="https://scdn.星.fun/icp.css">
+<!-- 修复：PC端不随意换行 + 手机端居中对齐 -->
+<style>
+    /* 外层容器：统一盒模型，解决宽度计算偏差 */
+    .beian {
+        display: block;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        margin: 0 auto;
+        /* 修复手机端偏左：添加左右内边距，且在所有屏幕生效 */
+        padding: 0 12px; 
+    }
+
+    /* 备案号组：核心修复 */
+    .beian-group {
+        display: flex;
+        align-items: center;
+        /* 关键修复1：设置对齐方式，防止容器有剩余空间时错误换行 */
+        align-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        row-gap: 6px;
+        width: 100%;
+        /* 移除内部padding，避免和外层容器叠加导致宽度不足 */
+        padding: 6px 0;
+        box-sizing: border-box;
+    }
+
+    /* 强制元素固定尺寸，确保挤压判断绝对精准 */
+    .beian-group a {
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: inline-block;
+    }
+
+    /* 雾备模块：与外层容器内边距对齐 */
+    .github-badge {
+        display: inline-flex;
+        align-items: center;
+        margin: 8px 0 0 0;
+    }
+
+    /* 图片统一尺寸 */
+    .beian img {
+        vertical-align: middle;
+        height: 22px;
+        width: auto;
+    }
+
+    /* 移动端适配：仅缩小间距和图片，不改变对齐逻辑 */
+    @media (max-width: 768px) {
+        .beian-group {
+            gap: 6px;
+            row-gap: 4px;
+        }
+        .beian img {
+            height: 20px;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .beian-group {
+            gap: 4px;
+        }
+        .beian img {
+            height: 18px;
+        }
+    }
+</style>
+
+<!-- 统计代码 (保持不变) -->
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>
+	LA.init({id:"3KkEpLxmzacRhipz",ck:"3KkEpLxmzacRhipz",autoTrack:true,hashMode:true,screenRecord:true})
+</script>
+<script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script>
+<script>
+	new LingQue.Monitor().init({id:"3KlOuZC0Fi3bgsEF",sendSuspicious:true,sendSpaPv:true});
+</script>
+<script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.abbr.min.js" defer></script>
+
+<!-- HTML结构 (保持不变) -->
+<div class="beian">
+	<div class="beian-group">
+		<a href="https://www.nekt.qzz.io/" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%90%88%E4%BD%9C&part2=%E7%86%B5%E7%9A%84%E5%B0%8F%E7%AB%99&style=green" alt="合作熵的小站">
+		</a>
+                <a href="https://icp.wudu.ltd/id.php?keyword=20260315" target="_blank" rel="noopener noreferrer">
+                        <img src="https://www.moicp.cn/preview.php?part1=%E9%9B%BEICP%E5%A4%87&part2=20260315%E5%8F%B7&style=orange" alt="雾ICP备20260315号" style="height: 20px;">
+                </a>
+		<a href="https://icp.gov.moe/?keyword=20268315" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E8%90%8CICP%E5%A4%87&part2=20268315%E5%8F%B7&style=gradientblue" alt="萌ICP备20268315号">
+		</a>
+		<a href="https://icp.hentioe.dev/sites/20266916" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%96%B5ICP%E5%A4%87&part2=20266916%E5%8F%B7&style=aurorapurple" alt="喵ICP备20266916号">
+		</a>
+		<a href="https://www.moicp.cn/keyword.php?type=魔ICP备2026823306号-1" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E9%AD%94ICP%E5%A4%87&part2=2026823306%E5%8F%B7-1&style=gradientblue" alt="魔ICP备2026823306号-1">
+		</a>
+		<a href="https://icp.sakura.ink/beian?code=2602230641" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E6%A8%B1ICP%E5%A4%87&part2=2602230641%E5%8F%B7&style=sunsetorange" alt="樱ICP备2602230641号">
+		</a>
+		<a href="https://icp.6uu.us/query.php?icp_number=%E5%85%83-58487" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E5%85%83ICP%E5%A4%87&part2=%E5%85%83-58487&style=limegreen" alt="元ICP备元-58487">
+		</a>
+                <a href="https://icp.redcha.cn/beian/ICP-2026020317.html" target="_blank" rel="noopener noreferrer">
+                       <img src="https://www.moicp.cn/preview.php?part1=%E8%8C%B6ICP%E5%A4%87&part2=2026020317%E5%8F%B7&style=coralpink" alt="茶ICP备2026020317号" style="height: 20px;">
+                </a>
+                <a href="https://icp.gs/?id=20265670" target="_blank" rel="noopener noreferrer">
+                       <img src="https://www.moicp.cn/preview.php?part1=%E5%B2%B8%E5%8F%B7&part2=20265670%E5%8F%B7&style=blackred" alt="岸号20265670号" style="height: 20px;">
+                </a>
+                <a href="https://icp.snzy.cc/?id=2026020315" target="_blank" rel="noopener noreferrer">
+                       <img src="https://www.moicp.cn/preview.php?part1=%E6%A2%B5AIA%E7%9B%9F&part2=2026020315%E5%8F%B7&style=blackblue" alt="梵AIA盟2026020315号" style="height: 20px;">
+                </a>
+                <a href="https://icp.n3v.cn/beian/ICP-2026028315.html" target="_blank" rel="noopener noreferrer">
+                       <img src="https://www.moicp.cn/preview.php?part1=%E9%85%B7AIA%E7%9B%9F&part2=2026028315%E5%8F%B7&style=blackgreen" alt="酷AIA盟2026028315号" style="height: 20px;">
+                </a>
+
+		<a href="https://icp.xnet.ren/beian/ICP-2026020315.html" target="_blank" rel="noopener noreferrer">
+			<img src="https://www.moicp.cn/preview.php?part1=%E4%BF%A1%E7%BD%91%E8%81%94%E7%9B%9F&part2=2026020315%E5%8F%B7&style=aurorapurple" alt="信网联盟2026020315号">
+		</a>
+	</div>
+	<div class="github-badge">
+		<span class="badge-subject">合作</span>
+		<a style="color:#fff" href="https://www.nekt.qzz.io/" rel="external" target="_blank">
+			<span class="badge-value bg-cai">熵的小站</span>
+		</a>
+                <a href="https://www.ssljx.cn/www.mxw2024.top" target="_blank">
+                        <img src="https://www.ssljx.cn/static/image/sslr.png" style="height: 35px;">
+               </a>
+               <a onclick="window.open('https://www.ktrust.cc/trust.php?sn=bXh3MjAyNC50b3A=','Trust SSL 安全签章','height=1000,width=660,top=0')" >
+                        <img src="https://www.ktrust.cc/images/TrustSSL-business.png" style="height: 45px;">
+               </a>
+               <a href="https://i.n3v.cn/keyword.php?type=BXT9345796520" title="孟轩网" target="_blank">
+                        <img style="height:35px;" src="https://i.n3v.cn/assets/images/five-star.png" alt="孟轩网">
+               </a>
+
+	</div>
+</div>

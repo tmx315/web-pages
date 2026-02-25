@@ -39,7 +39,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "傲雪の",
-		imgurl: "https://cdn.jsdmirror.com/gh/xxytan/xxytan@main/favicon.png",
+		imgurl: "https://obb.cc.cd/assets/favicon/1.ico",
 		desc: "无聊的一天搭配神经的我",
 		siteurl: "https://b.oxue.de",
 		tags: ["友情"],

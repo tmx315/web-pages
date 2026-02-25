@@ -270,6 +270,23 @@ enum I18nKey {
 	codeCollapsibleShowLess = "codeCollapsibleShowLess",
 	codeCollapsibleExpanded = "codeCollapsibleExpanded",
 	codeCollapsibleCollapsed = "codeCollapsibleCollapsed",
+
+	// 相册页面
+	gallery = "gallery",
+	galleryDescription = "galleryDescription",
+	galleryPhotos = "galleryPhotos",
+	galleryAlbums = "galleryAlbums",
+	galleryNoAlbums = "galleryNoAlbums",
+	galleryBackToAlbums = "galleryBackToAlbums",
+
+	// 密码保护
+	passwordProtected = "passwordProtected",
+	passwordProtectedDesc = "passwordProtectedDesc",
+	passwordHint = "passwordHint",
+	passwordPlaceholder = "passwordPlaceholder",
+	passwordSubmit = "passwordSubmit",
+	passwordError = "passwordError",
+	passwordProtectedRss = "passwordProtectedRss",
 }
 
 export default I18nKey;

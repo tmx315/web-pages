@@ -1,36 +1,22 @@
 # 关于我 / About Me
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
+你好！我是 **孟轩科技** ，欢迎来到我的blog。
 
-## 🛠️ 关于本站
+欢迎来找我申请友链哦！
 
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+## 官方网站
 
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
-
-
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
-
-**🏠我的博客： [https://blog.cuteleaf.cn](https://blog.cuteleaf.cn/)**
-
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
-
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
-
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
-
-::github{repo="CuteLeaf/Firefly"}
-
-::github{repo="saicaca/fuwari"}
-
+- [孟轩网的小站](https://www.mxw2024.top)
+- [下载站](https://down.mxw2024.top)
 
 ## 📫 联系方式
 
-如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
-
-- 💻 **GitHub**: [CuteLeaf](https://github.com/CuteLeaf)
-- ✉️ **Email**: [xiaye@msn.com](mailto:xiaye@msn.com)
-- 🐧 **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
+如果你想和我[交换友链](/friends/)，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
+ 
+- **Bilibli**: [孟轩科技](https://space.bilibili.com/3546739235621793)
+-  **快手**: [孟轩科技](https://www.kuaishou.com/profile/3xa88be8mg3z6zq)
+-  **GitHub**: [tmx315](https://github.com/tmx315)
+-  **Email**: [3838451843@qq.com](mailto:3838451843@qq.com)
 
 ---
 

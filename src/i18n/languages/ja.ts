@@ -282,23 +282,4 @@ export const ja: Translation = {
 	[Key.codeCollapsibleShowLess]: "少なく表示",
 	[Key.codeCollapsibleExpanded]: "コードブロックが展開されました",
 	[Key.codeCollapsibleCollapsed]: "コードブロックが折りたたまれました",
-
-	// ギャラリーページ
-	[Key.gallery]: "ギャラリー",
-	[Key.galleryDescription]: "人生の美しい瞬間を記録する",
-	[Key.galleryPhotos]: "枚の写真",
-	[Key.galleryAlbums]: "冊のアルバム",
-	[Key.galleryNoAlbums]: "アルバムがありません",
-	[Key.galleryBackToAlbums]: "アルバム一覧に戻る",
-
-	// パスワード保護
-	[Key.passwordProtected]: "パスワード保護",
-	[Key.passwordProtectedDesc]:
-		"この記事はパスワードで保護されています。内容を表示するにはパスワードを入力してください。",
-	[Key.passwordHint]: "ヒント",
-	[Key.passwordPlaceholder]: "パスワードを入力",
-	[Key.passwordSubmit]: "ロック解除",
-	[Key.passwordError]: "パスワードが間違っています。もう一度お試しください。",
-	[Key.passwordProtectedRss]:
-		"この記事は暗号化されています。ウェブサイトにアクセスしてご覧ください。",
 };

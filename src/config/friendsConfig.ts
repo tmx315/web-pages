@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "openaether",
+		imgurl: "https://img.openaether.cn/img/699c809821489_1771864216.png",
+		desc: "吴钧泽的博客",
+		siteurl: "https://openaether.cn",
+		tags: ["友情"],
+		weight: 12,
+		enabled: true,
+	},
+	{
 		title: "huajibenjiの笔记",
 		imgurl: "https://blog.alittlehuaji.top/upload/mygo.png",
 		desc: "Ciallo～(∠・ω< )⌒★",

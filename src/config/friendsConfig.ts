@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "Pr06a61y's Blog",
+		imgurl: "",
+		desc: "存活在互联网边缘...",
+		siteurl: "https://329817.xyz",
+		tags: ["友情"],
+		weight: 13,
+		enabled: true,
+	},
+	{
 		title: "openaether",
 		imgurl: "https://img.openaether.cn/img/699c809821489_1771864216.png",
 		desc: "吴钧泽的博客",

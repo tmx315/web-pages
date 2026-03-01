@@ -32,7 +32,6 @@ import mdx from "@astrojs/mdx";
 import rehypeEmailProtection from "./src/plugins/rehype-email-protection.mjs";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.mjs";
 import rehypeFigure from "./src/plugins/rehype-figure.mjs";
-import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -158,9 +157,6 @@ export default defineConfig({
 				if (pathname === "/bangumi/" && !siteConfig.pages.bangumi) {
 					return false;
 				}
-				if (pathname === "/gallery/" && !siteConfig.pages.gallery) {
-					return false;
-				}
 
 				return true;
 			},
@@ -171,7 +167,6 @@ export default defineConfig({
 		remarkPlugins: [
 			remarkMath,
 			remarkReadingTime,
-			remarkImageGrid,
 			remarkExcerpt,
 			remarkDirective,
 			remarkSectionize,

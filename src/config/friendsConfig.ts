@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "恒星维度 | Stellar Dimension",
+		imgurl: "https://www.steldim.cn/logo.png",
+		desc: "未知",
+		siteurl: "https://www.steldim.cn/",
+		tags: ["友情"],
+		weight: 15,
+		enabled: true,
+	},
+	{
 		title: "Lucas的小博客",
 		imgurl: "https://pic1.imgdb.cn/item/68fe309a3203f7be00a0c198.png",
 		desc: "欲买桂花同载酒，终不似，少年游",

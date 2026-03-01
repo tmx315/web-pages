@@ -29,9 +29,9 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
-		title: "恒星维度 | Stellar Dimension",
+		title: "Stellar Dimension 恒星维度",
 		imgurl: "https://www.steldim.cn/logo.png",
-		desc: "未知",
+		desc: "专注于网络信息技术、AI、大数据、云存储等解决方案。",
 		siteurl: "https://www.steldim.cn/",
 		tags: ["友情"],
 		weight: 15,

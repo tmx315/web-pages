@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "Lucas的小博客",
+		imgurl: "https://pic1.imgdb.cn/item/68fe309a3203f7be00a0c198.png",
+		desc: "欲买桂花同载酒，终不似，少年游",
+		siteurl: "https://blog.lris625.top/",
+		tags: ["友情"],
+		weight: 14,
+		enabled: true,
+	},
+	{
 		title: "Pr06a61y's Blog",
 		imgurl: "",
 		desc: "存活在互联网边缘...",

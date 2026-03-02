@@ -45,10 +45,9 @@ export type SiteConfig = {
 		theme: "github" | "obsidian" | "vitepress";
 	};
 
-	// bangumi配置
+	// 添加bangumi配置
 	bangumi?: {
 		userId?: string; // Bangumi用户ID
-		categoryOrder?: ("anime" | "game" | "book" | "music" | "real")[]; // 条目类型排序顺序
 	};
 
 	generateOgImages: boolean;
@@ -277,6 +276,12 @@ export type ExpressiveCodeConfig = {
 	lightTheme: string;
 	/** 代码块折叠插件配置 */
 	pluginCollapsible?: PluginCollapsibleConfig;
+	/** 语言徽章插件配置 */
+	pluginLanguageBadge?: PluginLanguageBadgeConfig;
+};
+
+export type PluginLanguageBadgeConfig = {
+	enable: boolean; // 是否启用语言徽章
 };
 
 export type PluginCollapsibleConfig = {

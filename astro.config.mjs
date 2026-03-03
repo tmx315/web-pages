@@ -32,7 +32,6 @@ import mdx from "@astrojs/mdx";
 import rehypeEmailProtection from "./src/plugins/rehype-email-protection.mjs";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.mjs";
 import rehypeFigure from "./src/plugins/rehype-figure.mjs";
-import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -82,7 +81,7 @@ export default defineConfig({
 				"fa7-brands": ["*"],
 				"fa7-regular": ["*"],
 				"fa7-solid": ["*"],
-				"simple-icons": ["*"],
+				"simple-icons": ["*"], 
 				mdi: ["*"],
 			},
 		}),
@@ -91,23 +90,16 @@ export default defineConfig({
 			useDarkModeMediaQuery: false,
 			themeCssSelector: (theme) => `[data-theme='${theme.name}']`,
 			plugins: [
-				// pluginLanguageBadge 配置 - 从expressiveCodeConfig读取设置
-				...(expressiveCodeConfig.pluginLanguageBadge?.enable === true
-					? [pluginLanguageBadge()]
-					: []),
+				pluginLanguageBadge(),
 				pluginCollapsibleSections(),
 				pluginLineNumbers(),
 				// pluginCollapsible 配置 - 从expressiveCodeConfig读取设置，使用i18n文本
 				...(expressiveCodeConfig.pluginCollapsible?.enable === true
 					? [
 							pluginCollapsible({
-								lineThreshold:
-									expressiveCodeConfig.pluginCollapsible.lineThreshold || 15,
-								previewLines:
-									expressiveCodeConfig.pluginCollapsible.previewLines || 8,
-								defaultCollapsed:
-									expressiveCodeConfig.pluginCollapsible.defaultCollapsed ??
-									true,
+								lineThreshold: expressiveCodeConfig.pluginCollapsible.lineThreshold || 15,
+								previewLines: expressiveCodeConfig.pluginCollapsible.previewLines || 8,
+								defaultCollapsed: expressiveCodeConfig.pluginCollapsible.defaultCollapsed ?? true,
 								expandButtonText: i18n(I18nKey.codeCollapsibleShowMore),
 								collapseButtonText: i18n(I18nKey.codeCollapsibleShowLess),
 								expandedAnnouncement: i18n(I18nKey.codeCollapsibleExpanded),
@@ -165,9 +157,6 @@ export default defineConfig({
 				if (pathname === "/bangumi/" && !siteConfig.pages.bangumi) {
 					return false;
 				}
-				if (pathname === "/gallery/" && !siteConfig.pages.gallery) {
-					return false;
-				}
 
 				return true;
 			},
@@ -178,7 +167,6 @@ export default defineConfig({
 		remarkPlugins: [
 			remarkMath,
 			remarkReadingTime,
-			remarkImageGrid,
 			remarkExcerpt,
 			remarkDirective,
 			remarkSectionize,
@@ -227,18 +215,26 @@ export default defineConfig({
 		],
 	},
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [
+			tailwindcss(),
+		],
 		resolve: {
 			alias: {
 				"@rehype-callouts-theme": `rehype-callouts/theme/${siteConfig.rehypeCallouts.theme}`,
 			},
 		},
 		build: {
-			minify: "esbuild",
-			esbuildOptions: {
-				minify: true,
-				// 移除 console.log 和 debugger
-				drop: ["console", "debugger"], 
+			// 启用资源压缩和优化
+			minify: "terser",
+			terserOptions: {
+				compress: {
+					drop_console: false, // 生产环境可改为true移除console
+					drop_debugger: true,
+				},
+				mangle: true,
+				format: {
+					comments: false,
+				},
 			},
 			rollupOptions: {
 				onwarn(warning, warn) {
@@ -254,7 +250,13 @@ export default defineConfig({
 			},
 			// CSS 优化
 			cssCodeSplit: true,
-			cssMinify: "esbuild",
+			cssMinify: true,
+			// 资源大小限制 - 减少内联资源
+			assetsInlineLimit: 4096,
+			// 减少源映射大小（可选，生产环境改为false）
+			sourcemap: false,
+			// 并行处理构建
+			workers: 4,
 		},
 	},
 });

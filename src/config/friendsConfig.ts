@@ -29,6 +29,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "六六云计算",
+		imgurl: "https://idc.llvps.cn/upload/a.png",
+		desc: "便宜云服务器，挂机宝全在这",
+		siteurl: "https://idc.llvps.cn/",
+		tags: ["友情"],
+		weight: 16,
+		enabled: true,
+	},
+	{
 		title: "Stellar Dimension 恒星维度",
 		imgurl: "https://www.steldim.cn/logo.png",
 		desc: "专注于网络信息技术、AI、大数据、云存储等解决方案。",

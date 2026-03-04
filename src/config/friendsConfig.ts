@@ -23,7 +23,7 @@ export const friendsConfig: FriendLink[] = [
 		title: "逆云科技",
 		imgurl: "https://www.mxw2024.top/img/niyun.jpg",
 		desc: "上海逆云企业有限公司成立于2019年，是一家专注于云游戏技术研发与服务的科技公司。公司致力于为游戏开发商和运营商提供稳定、高效的云游戏解决方案，帮助客户降低游戏运营成本，提升用户体验。",
-		siteurl: "https://www.niyunkeji.qzz.io/",
+		siteurl: "https://www.niyunkeji.top",
 		tags: ["合作"],
 		weight: 998,
 		enabled: true,

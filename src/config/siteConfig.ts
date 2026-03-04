@@ -7,27 +7,27 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "孟轩科技's blog",
+	title: "Firefly",
 
 	// 站点副标题
-	subtitle: "孟轩网的小站",
+	subtitle: "Demo site",
 
 	// 站点 URL
-	site_url: "https://blog.mxw2024.top",
+	site_url: "https://firefly.cuteleaf.cn",
 
 	// 站点描述
 	description:
-		"孟轩网 简洁 · 美观 · 纯净 · 无广告，提供网页游戏、AI助手、极域破解工具箱等多项服务，由孟轩科技自己在假期中独立打造，并没有什么开发团队。",
+		"Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
 
 	// 站点关键词
 	keywords: [
-		"mxw",
-		"孟轩网的小站",
-		"孟轩科技",
-		"mxw315",
-		"孟轩网",
+		"Firefly",
+		"Fuwari",
+		"Astro",
+		"ACGN",
+		"博客",
 		"技术博客",
-		"网页游戏",
+		"静态博客",
 	],
 
 	// 主题色
@@ -42,6 +42,7 @@ export const siteConfig: SiteConfig = {
 
 	// 页面整体宽度（单位：rem）
 	// 数值越大可以让页面内容区域更宽
+	// 在使用单侧栏边栏时，建议调低一些宽度以获得更好的视觉效果。
 	pageWidth: 100,
 
 	// 网站Card样式配置
@@ -72,19 +73,19 @@ export const siteConfig: SiteConfig = {
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
 			type: "image",
-			value: "assets/images/mc.webp",
-			alt: "孟轩科技",
+			value: "assets/images/firefly.png",
+			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "孟轩科技's Blog",
+		title: "Firefly",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
-		widthFull: true,
+		widthFull: false,
 		// 导航栏图标和标题是否跟随主题色
-		followTheme: true,
+		followTheme: false,
 	},
 
 	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2024-08-23",
+	siteStartDate: "2025-01-01",
 
 	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
@@ -112,17 +113,23 @@ export const siteConfig: SiteConfig = {
 	bangumi: {
 		// Bangumi用户ID
 		userId: "1143164",
+		// 条目类型排序，数组中的类型将按顺序优先展示
+		// 可选值: "anime" | "book" | "music" | "game" | "real" (暂不支持"real"类型)
+		// 未列出的类型将按默认顺序排在后面
+		categoryOrder: ["anime", "book", "music", "game"],
 	},
 
 	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404
 	// bangumi的数据为编译时获取的，所以不是实时数据，请配置bangumi.userId
 	pages: {
 		// 赞助页面开关
-		sponsor: false,
+		sponsor: true,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
-		bangumi: false,
+		bangumi: true,
+		// 相册页面开关
+		gallery: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
@@ -138,10 +145,8 @@ export const siteConfig: SiteConfig = {
 		grid: {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
 			masonry: false,
-			// 网格模式列数：2 或 3
-			// 2列是默认模式，在任何侧边栏配置下均可生效
-			// 3列模式仅在单侧边栏（或无侧边栏）时生效，
-			columns: 3,
+			// 网格模式卡片最小宽度(px)，浏览器根据容器宽度自动计算列数，默认 280
+			columnWidth: 320,
 		},
 	},
 
@@ -172,6 +177,10 @@ export const siteConfig: SiteConfig = {
 		formats: "webp",
 		// 图片压缩质量 (1-100)，值越低体积越小但质量越差，推荐 70-85
 		quality: 85,
+		// 为特定域名的图片添加 referrerpolicy="no-referrer" 属性
+		// 支持通配符 *，例如：["i0.hdslb.com", "*.bilibili.com"]
+		// 可解决指定域名图片加载时的 403 问题（如防盗链图片）
+		noReferrerDomains: [],
 	},
 
 	// 字体配置

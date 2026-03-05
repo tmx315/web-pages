@@ -38,6 +38,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "幽默的小刘吖博客",
+		imgurl: "https://blog.lzch.top/favicon.png",
+		desc: "每天分享不一样的知识内容",
+		siteurl: "https://blog.lzch.top",
+		tags: ["友情"],
+		weight: 17,
+		enabled: true,
+	},
+	{
 		title: "六六云计算",
 		imgurl: "https://idc.llvps.cn/upload/a.png",
 		desc: "便宜云服务器，挂机宝全在这",

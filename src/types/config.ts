@@ -29,6 +29,8 @@ export type SiteConfig = {
 	card: {
 		// 是否开启卡片边框和阴影立体效果
 		border: boolean;
+		// 是否让卡片风格跟随主题色相
+		followTheme?: boolean;
 	};
 
 	// 字体配置
@@ -204,7 +206,6 @@ export type CommentConfig = {
 	waline?: {
 		serverURL: string;
 		lang?: string;
-		emoji: string[];
 		login?: "enable" | "force" | "disable";
 		visitorCount?: boolean; // 是否统计访问量，true 启用访问量，false 关闭
 	};

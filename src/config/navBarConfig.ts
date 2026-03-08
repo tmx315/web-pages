@@ -93,13 +93,14 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				icon: "arcticons:kwai",
 			},
 			{
-<<<<<<< HEAD
 				name: "Bilibili",
 				url: "https://space.bilibili.com/3546739235621793",
-=======
+				external: true,
+				icon: "fa6-brands:bilibili",
+			},
+			{
 				name: "Gitee",
 				url: "https://gitee.com/CuteLeaf/Firefly",
->>>>>>> upstream/master
 				external: true,
 				icon: "fa7-brands:gitee",
 			},
@@ -109,7 +110,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				external: true,
 				icon: "fa7-brands:qq",
 			},
-<<<<<<< HEAD
 			{
 				name: "GitHub",
 				url: "https://www.github.com/tmx315",
@@ -147,8 +147,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
-=======
->>>>>>> upstream/master
 		],
 	});
 

@@ -81,13 +81,9 @@ export const siteConfig: SiteConfig = {
 		// 导航栏标题
 		title: "孟轩科技's Blog",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
-<<<<<<< HEAD
-		widthFull: true,
-=======
-		widthFull: false,
+		widthFull: true, // 保留你的本地配置：true
 		// 导航菜单对齐方式，left：左对齐，center：居中
-		menuAlign: "center",
->>>>>>> upstream/master
+		menuAlign: "center", // 保留上游新增配置
 		// 导航栏图标和标题是否跟随主题色
 		followTheme: true,
 	},
@@ -135,13 +131,9 @@ export const siteConfig: SiteConfig = {
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
-<<<<<<< HEAD
-		bangumi: false,
-=======
-		bangumi: true,
+		bangumi: false, // 保留你的本地配置：false
 		// 相册页面开关
-		gallery: true,
->>>>>>> upstream/master
+		gallery: true, // 保留上游新增配置
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航

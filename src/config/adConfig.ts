@@ -8,7 +8,7 @@ export const adConfig1: AdConfig = {
 		src: "/assets/images/shang.webp",
 		alt: "推广：熵的小站",
 		link: "https://www.nekt.qzz.io/",
-		external:true,
+		external: true,
 	},
 
 	// 是否允许关闭广告

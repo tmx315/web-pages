@@ -632,6 +632,7 @@ export type FriendsPageConfig = {
 	description?: string; // 页面描述，留空则使用 i18n 中的翻译
 	showCustomContent?: boolean; // 是否显示自定义内容（friends.mdx）
 	randomizeSort?: boolean; // 是否打乱排序，如果为 true，将忽略 weight，随机排序
+	columns?: number; // 显示列数：2列或3列
 };
 
 // 音乐播放器配置

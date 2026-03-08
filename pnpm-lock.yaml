@@ -41,6 +41,9 @@ importers:
       '@fontsource/roboto':
         specifier: ^5.2.10
         version: 5.2.10
+      '@iconify-json/arcticons':
+        specifier: ^1.2.49
+        version: 1.2.49
       '@iconify-json/fa7-brands':
         specifier: ^1.2.2
         version: 1.2.2
@@ -1295,6 +1298,9 @@ packages:
 
   '@fontsource/roboto@5.2.10':
     resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
+
+  '@iconify-json/arcticons@1.2.49':
+    resolution: {integrity: sha512-MiHn3RHj7JnxiIM6C5B3K5kD+qpeH87pe96ngJFi7w97KwdwE+r8xt976hYNR+zRcjo6RlXiK5QPUm86MYZf3Q==}
 
   '@iconify-json/fa7-brands@1.2.2':
     resolution: {integrity: sha512-y6ZBdlLS4v1suB6fuMI5kqSO0B91Y19nlqTz7VfBYu9lI948tbRh+6lU2kNMOlo8I4qgSWX0SEdN7jkhOzI5gA==}
@@ -6755,6 +6761,10 @@ snapshots:
   '@fontsource-variable/jetbrains-mono@5.2.8': {}
 
   '@fontsource/roboto@5.2.10': {}
+
+  '@iconify-json/arcticons@1.2.49':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/fa7-brands@1.2.2':
     dependencies:

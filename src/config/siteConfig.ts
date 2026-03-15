@@ -7,27 +7,27 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "孟轩科技's blog",
+	title: "Firefly",
 
 	// 站点副标题
-	subtitle: "孟轩网的小站",
+	subtitle: "Demo site",
 
 	// 站点 URL
-	site_url: "https://blog.mxw2024.top",
+	site_url: "https://firefly.cuteleaf.cn",
 
 	// 站点描述
 	description:
-		"孟轩网 简洁 · 美观 · 纯净 · 无广告，提供网页游戏、AI助手、极域破解工具箱等多项服务，由孟轩科技自己在假期中独立打造，并没有什么开发团队。",
+		"Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
 
 	// 站点关键词
 	keywords: [
-		"mxw",
-		"孟轩网的小站",
-		"孟轩科技",
-		"mxw315",
-		"孟轩网",
+		"Firefly",
+		"Fuwari",
+		"Astro",
+		"ACGN",
+		"博客",
 		"技术博客",
-		"网页游戏",
+		"静态博客",
 	],
 
 	// 主题色
@@ -75,21 +75,21 @@ export const siteConfig: SiteConfig = {
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
 			type: "image",
-			value: "assets/images/mc.webp",
-			alt: "孟轩科技",
+			value: "assets/images/firefly.png",
+			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "孟轩科技's Blog",
+		title: "Firefly",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
-		widthFull: true, // 保留你的本地配置：true
+		widthFull: false,
 		// 导航菜单对齐方式，left：左对齐，center：居中
-		menuAlign: "center", // 保留上游新增配置
+		menuAlign: "center",
 		// 导航栏图标和标题是否跟随主题色
-		followTheme: true,
+		followTheme: false,
 	},
 
 	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2024-08-23",
+	siteStartDate: "2025-01-01",
 
 	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
@@ -127,13 +127,13 @@ export const siteConfig: SiteConfig = {
 	// bangumi的数据为编译时获取的，所以不是实时数据，请配置bangumi.userId
 	pages: {
 		// 赞助页面开关
-		sponsor: false,
+		sponsor: true,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
-		bangumi: false, // 保留你的本地配置：false
+		bangumi: true,
 		// 相册页面开关
-		gallery: true, // 保留上游新增配置
+		gallery: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
@@ -166,6 +166,28 @@ export const siteConfig: SiteConfig = {
 		googleAnalyticsId: "",
 		// Microsoft Clarity ID
 		microsoftClarityId: "",
+		// Umami 统计配置
+		umamiAnalytics: {
+			// Umami Website ID
+			websiteId: "",
+			// Umami JS地址，支持使用自建
+			scriptUrl: "https://cloud.umami.is/script.js",
+		},
+		// 51la 统计配置
+		la51Analytics: {
+			// 51la 统计 ID
+			Id: "",
+			// 自定义 SDK JS 地址，防止 DNS 污染，留空使用默认地址
+			sdkUrl: "",
+			// 多个统计 ID 的数据分离标识，留空则使用 Id
+			ck: "",
+			// 是否开启事件分析功能
+			autoTrack: false,
+			//  Hash路由模式, 项目使用History API路由, 所以不必开启默认false
+			hashMode: false,
+			// 是否开启网站录屏功能
+			screenRecord: true,
+		},
 	},
 
 	// 图像优化及响应式配置

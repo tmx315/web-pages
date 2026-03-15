@@ -72,13 +72,13 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				name: "下载站",
 				url: "https://down.mxw2024.top/",
 				external: true,
-				icon: "icons8:download",
+				icon: "fa7-solid:download",
 			},
 			{
 				name: "网页游戏",
 				url: "https://game.mxw2024.top/",
 				external: true,
-				icon: "gis:3dtiles-web",
+				icon: "fa7-solid:gamepad",
 			},
 			{
 				name: "GitHub加速",
@@ -96,7 +96,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				name: "Bilibili",
 				url: "https://space.bilibili.com/3546739235621793",
 				external: true,
-				icon: "fa6-brands:bilibili",
+				icon: "fa7-brands:bilibili",
 			},
 			{
 				name: "Gitee",
@@ -114,7 +114,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				name: "GitHub",
 				url: "https://www.github.com/tmx315",
 				external: true,
-				icon: "line-md:github-twotone",
+				icon: "fa7-brands:github",
 			},
 			{
 				name: "熵的小站",

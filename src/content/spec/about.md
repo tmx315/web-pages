@@ -19,12 +19,6 @@
 -  **GitHub**: [tmx315](https://github.com/tmx315)
 -  **Email**: [3838451843@qq.com](mailto:3838451843@qq.com)
 =======
-如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
-
-- 💻 **GitHub**: [CuteLeaf](https://github.com/CuteLeaf)
-- ✉️ **Email**: [xiaye@msn.com](mailto:xiaye@msn.com)
-- 🐧 **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
->>>>>>> upstream/master
 
 ---
 

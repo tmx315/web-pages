@@ -110,6 +110,14 @@ export type SiteConfig = {
 	analytics?: {
 		googleAnalyticsId?: string; // Google Analytics ID
 		microsoftClarityId?: string; // Microsoft Clarity ID
+		la51Analytics?: {
+			Id?: string; // 51la 统计 ID
+			sdkUrl?: string; // 自定义 SDK 地址，防止 DNS 污染，默认为 "//sdk.51.la/js-sdk-pro.min.js"
+			ck?: string; // 多个统计 ID 的数据分离标识，默认与 id 相同
+			autoTrack?: boolean; // 开启事件分析功能，默认 true
+			hashMode?: boolean; // 单页面应用统计（Vue/React 等），默认 false
+			screenRecord?: boolean; // 开启网站录屏功能，默认 true
+		};
 	};
 
 	// 图片优化配置
@@ -632,7 +640,6 @@ export type FriendsPageConfig = {
 	description?: string; // 页面描述，留空则使用 i18n 中的翻译
 	showCustomContent?: boolean; // 是否显示自定义内容（friends.mdx）
 	randomizeSort?: boolean; // 是否打乱排序，如果为 true，将忽略 weight，随机排序
-	columns?: number; // 显示列数：2列或3列
 };
 
 // 音乐播放器配置

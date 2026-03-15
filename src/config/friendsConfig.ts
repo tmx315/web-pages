@@ -55,7 +55,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "愿你在峥嵘长青的世界里热忱不息",
 		siteurl: "https://ccwmoran.pages.dev",
 		tags: ["友情"],
-		weight: 6,
+		weight: 17,
 		enabled: true,
 	},
 	{

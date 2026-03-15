@@ -21,6 +21,14 @@ export const galleryConfig: GalleryConfig = {
 			date: "2026-03-15",
 			tags: ["孟轩网", "孟轩科技"],
 		},
+		{
+			id: "mxw-2025",
+			name: "孟轩科技",
+			description: "一个简洁、美观、纯净、无广告的小站",
+			location: "孟轩网",
+			date: "2025-03-15",
+			tags: ["孟轩网", "孟轩科技"],
+		},
 	],
 
 	// 瀑布流最小列宽(px)，浏览器根据容器宽度自动计算列数，默认 240

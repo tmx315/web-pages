@@ -1,6 +1,5 @@
 ---
 import GoogleAnalytics from "@components/analytics/GoogleAnalytics.astro";
-import La51Analytics from "@components/analytics/La51Analytics.astro";
 import MicrosoftClarity from "@components/analytics/MicrosoftClarity.astro";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontManager from "@components/features/FontManager.astro";
@@ -102,16 +101,6 @@ const siteLang = lang.replace("_", "-");
     )}
     {siteConfig.analytics?.microsoftClarityId && (
             <MicrosoftClarity clarityId={siteConfig.analytics.microsoftClarityId} />
-    )}
-        {siteConfig.analytics?.la51Analytics?.Id && (
-            <La51Analytics
-            analyticsId={siteConfig.analytics.la51Analytics.Id}
-            sdkUrl={siteConfig.analytics.la51Analytics?.sdkUrl}
-            ck={siteConfig.analytics.la51Analytics?.ck}
-            autoTrack={siteConfig.analytics.la51Analytics?.autoTrack}
-            hashMode={siteConfig.analytics.la51Analytics?.hashMode}
-            screenRecord={siteConfig.analytics.la51Analytics?.screenRecord}
-            />
     )}
 
     <title>{pageTitle}</title>
@@ -710,26 +699,6 @@ function disableAnimation() {
     });
   }
 
-  function initHorizontalOverflowContainers() {
-    const markdownTables = document.querySelectorAll(
-      ".custom-md table:not([data-horizontal-scroll-ready])"
-    ) as NodeListOf<HTMLElement>;
-
-    markdownTables.forEach((table) => {
-      if (table.parentElement?.classList.contains("horizontal-scroll-container")) {
-        table.dataset.horizontalScrollReady = "true";
-        return;
-      }
-
-      const container = document.createElement("div");
-      container.className = "horizontal-scroll-container";
-      table.parentNode?.insertBefore(container, table);
-      container.appendChild(table);
-      table.dataset.horizontalScrollReady = "true";
-    });
-
-  }
-
   function showBanner() {
     const isBannerMode = backgroundWallpaper.mode === "banner";
     if (!isBannerMode) return;
@@ -803,7 +772,6 @@ function disableAnimation() {
 
       // 只处理katex元素的容器，使用浏览器原生滚动条
       initCustomScrollbar();
-      initHorizontalOverflowContainers();
 
       // 重新初始化图标加载器
       import("@/utils/icon-loader").then(({ initIconLoader }) => {
@@ -1066,9 +1034,6 @@ function disableAnimation() {
     const scrollTop = document.documentElement.scrollTop;
     const bannerHeight = window.innerHeight * (BANNER_HEIGHT / 100);
 
-    // 根据滚动位置动态更新侧边栏 sticky 间距
-    updateSidebarStickySpacing();
-
     // 使用批量DOM操作优化性能
     const operations: (() => void)[] = [];
 
@@ -1140,12 +1105,10 @@ function disableAnimation() {
     document.addEventListener("DOMContentLoaded", () => {
       showBanner();
       initCustomScrollbar();
-      initHorizontalOverflowContainers();
     });
   } else {
     showBanner();
     initCustomScrollbar();
-    initHorizontalOverflowContainers();
   }
 
   // 检查当前页面是否为文章详情页
@@ -1229,42 +1192,6 @@ function disableAnimation() {
     // 处理 showOnNonPostPage === false 的组件
     document.querySelectorAll(".widget-hide-on-non-post").forEach((widget) => {
       !isPostPage ? widget.classList.add("hidden") : widget.classList.remove("hidden");
-    });
-
-    // 组件可见性变化后，立即重算 sticky 间距，避免 swup 切页后残留旧间距
-    updateSidebarStickySpacing();
-  }
-
-  // 根据当前页面实际可见的顶部组件与滚动位置，动态更新侧边栏 sticky 间距
-  function updateSidebarStickySpacing() {
-    const scrollTop = document.documentElement.scrollTop || window.scrollY || 0;
-
-    (["left", "right"] as const).forEach((side) => {
-      const sticky = document.getElementById(`${side}-sidebar-sticky`);
-      if (!sticky) return;
-
-      // 结构为：sidebar -> top 容器（可选） + sticky 容器
-      const topContainer = sticky.previousElementSibling as HTMLElement | null;
-      const hasVisibleTop =
-        !!topContainer && topContainer.getBoundingClientRect().height > 1;
-
-      // swup 从非文章页切换到文章页时，top 容器可能残留 mb-4，需要按可见性动态修正
-      if (topContainer) {
-        if (hasVisibleTop) {
-          topContainer.classList.add("mb-4");
-        } else {
-          topContainer.classList.remove("mb-4");
-        }
-      }
-
-      sticky.classList.remove("top-0", "top-4");
-
-      // 仅切换顶部偏移；组件间距由容器常驻 gap-4 保持
-      if (hasVisibleTop || scrollTop > 0) {
-        sticky.classList.add("top-4");
-      } else {
-        sticky.classList.add("top-0");
-      }
     });
   }
 

@@ -50,12 +50,21 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "CCWMORAN慕然科技",
+		imgurl: "https://gpo.saobby.com/i/XlQ1PmuU5UPnej02.webp",
+		desc: "愿你在峥嵘长青的世界里热忱不息",
+		siteurl: "https://ccwmoran.pages.dev",
+		tags: ["友情"],
+		weight: 6,
+		enabled: true,
+	},
+	{
 		title: "幽默的小刘吖博客",
 		imgurl: "https://blog.lzch.top/favicon.png",
 		desc: "每天分享不一样的知识内容",
 		siteurl: "https://blog.lzch.top",
 		tags: ["友情"],
-		weight: 17,
+		weight: 16,
 		enabled: true,
 	},
 	{
@@ -64,7 +73,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "便宜云服务器，挂机宝全在这",
 		siteurl: "https://idc.llvps.cn/",
 		tags: ["友情"],
-		weight: 16,
+		weight: 15,
 		enabled: true,
 	},
 	{
@@ -73,7 +82,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "专注于网络信息技术、AI、大数据、云存储等解决方案。",
 		siteurl: "https://www.steldim.cn/",
 		tags: ["友情"],
-		weight: 15,
+		weight: 14,
 		enabled: true,
 	},
 	{
@@ -82,7 +91,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "欲买桂花同载酒，终不似，少年游",
 		siteurl: "https://blog.lris625.top/",
 		tags: ["友情"],
-		weight: 14,
+		weight: 13,
 		enabled: true,
 	},
 	{
@@ -91,7 +100,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "存活在互联网边缘...",
 		siteurl: "https://329817.xyz",
 		tags: ["友情"],
-		weight: 13,
+		weight: 12,
 		enabled: true,
 	},
 	{
@@ -100,7 +109,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "吴钧泽的博客",
 		siteurl: "https://openaether.cn",
 		tags: ["友情"],
-		weight: 12,
+		weight: 11,
 		enabled: true,
 	},
 	{
@@ -109,7 +118,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "Ciallo～(∠・ω< )⌒★",
 		siteurl: "https://blog.alittlehuaji.top/",
 		tags: ["友情"],
-		weight: 11,
+		weight: 10,
 		enabled: true,
 	},
 	{
@@ -118,7 +127,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "无聊的一天搭配神经的我",
 		siteurl: "https://b.oxue.de",
 		tags: ["友情"],
-		weight: 10,
+		weight: 9,
 		enabled: true,
 	},
 	{
@@ -127,7 +136,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "无需服务器和域名，快速生成可访问站点",
 		siteurl: "https://miyo.hyperspark.cn",
 		tags: ["友情"],
-		weight: 9,
+		weight: 8,
 		enabled: true,
 	},
 	{
@@ -136,7 +145,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "晚梦云科技工作室成立于2022年是，河南省林州市领先的软件开发团队，专注于为企业提供定制软件开发、移动应用开发和大数据分析服务。",
 		siteurl: "https://wmy2025.cn/",
 		tags: ["友情"],
-		weight: 8,
+		weight: 7,
 		enabled: true,
 	},
 	{
@@ -144,15 +153,6 @@ export const friendsConfig: FriendLink[] = [
 		imgurl: "https://www.vidlii.net/usfi/avt/1HH5cpvb235.jpg",
 		desc: "一只石头做的猫",
 		siteurl: "http://imshimao.com/",
-		tags: ["友情"],
-		weight: 7,
-		enabled: true,
-	},
-	{
-		title: "CCWMORAN慕然科技",
-		imgurl: "https://gpo.saobby.com/i/XlQ1PmuU5UPnej02.webp",
-		desc: "CCW共创世界CCWMORAN慕然科技官网",
-		siteurl: "https://ccwmoran.github.io",
 		tags: ["友情"],
 		weight: 6,
 		enabled: true,

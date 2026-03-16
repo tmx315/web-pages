@@ -18,8 +18,10 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	// 友链
-	links.push(LinkPreset.Friends);
+	// 根据配置决定是否添加友链，在siteConfig关闭pages.friends时导航栏不显示友链
+	if (siteConfig.pages.friends) {
+		links.push(LinkPreset.Friends);
+	}
 
 	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
 	if (siteConfig.pages.guestbook) {
@@ -63,40 +65,10 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		// 子菜单
 		children: [
 			{
-				name: "官网首页",
-				url: "https://www.mxw2024.top/",
+				name: "GitHub",
+				url: "https://github.com/CuteLeaf/Firefly",
 				external: true,
-				icon: "material-symbols:home-app-logo",
-			},
-			{
-				name: "下载站",
-				url: "https://down.mxw2024.top/",
-				external: true,
-				icon: "fa7-solid:download",
-			},
-			{
-				name: "网页游戏",
-				url: "https://game.mxw2024.top/",
-				external: true,
-				icon: "fa7-solid:gamepad",
-			},
-			{
-				name: "GitHub加速",
-				url: "https://down.mxw.xx.kg/",
-				external: true,
-				icon: "mdi:github",
-			},
-			{
-				name: "快手",
-				url: "https://www.kuaishou.com/profile/3xa88be8mg3z6zq",
-				external: true,
-				icon: "arcticons:kwai",
-			},
-			{
-				name: "Bilibili",
-				url: "https://space.bilibili.com/3546739235621793",
-				external: true,
-				icon: "fa7-brands:bilibili",
+				icon: "fa7-brands:github",
 			},
 			{
 				name: "Gitee",
@@ -109,18 +81,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				url: "https://qm.qq.com/q/ZGsFa8qX2G",
 				external: true,
 				icon: "fa7-brands:qq",
-			},
-			{
-				name: "GitHub",
-				url: "https://www.github.com/tmx315",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-			{
-				name: "熵的小站",
-				url: "https://www.nekt.qzz.io/",
-				external: true,
-				icon: "material-symbols:attach-file-rounded",
 			},
 		],
 	});

@@ -78,14 +78,16 @@ export const siteConfig: SiteConfig = {
 			value: "assets/images/mc.webp",
 			alt: "孟轩科技",
 		},
-		// 导航栏标题
+		// 导航栏标题（保留你的定制）
 		title: "孟轩科技's Blog",
-		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
-		widthFull: true, // 保留你的本地配置：true
-		// 导航菜单对齐方式，left：左对齐，center：居中
-		menuAlign: "center", // 保留上游新增配置
-		// 导航栏图标和标题是否跟随主题色
+		// 全宽导航栏（保留你的定制：true）
+		widthFull: true,
+		// 导航菜单对齐方式（保留上游新增配置）
+		menuAlign: "center",
+		// 导航栏图标和标题是否跟随主题色（保留你的定制：true）
 		followTheme: true,
+		// 导航栏是否固定在顶部（保留上游新增配置）
+		stickyNavbar: true,
 	},
 
 	// 站点开始日期，用于统计运行天数
@@ -130,10 +132,10 @@ export const siteConfig: SiteConfig = {
 		sponsor: false,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
-		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
-		bangumi: false, // 保留你的本地配置：false
-		// 相册页面开关
-		gallery: true, // 保留上游新增配置
+		// 番组计划页面开关（保留你的定制：false）
+		bangumi: false,
+		// 相册页面开关（保留上游新增配置）
+		gallery: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
@@ -166,6 +168,28 @@ export const siteConfig: SiteConfig = {
 		googleAnalyticsId: "",
 		// Microsoft Clarity ID
 		microsoftClarityId: "",
+		// Umami 统计配置
+		umamiAnalytics: {
+			// Umami Website ID
+			websiteId: "",
+			// Umami JS地址，支持使用自建
+			scriptUrl: "https://cloud.umami.is/script.js",
+		},
+		// 51la 统计配置
+		la51Analytics: {
+			// 51la 统计 ID
+			Id: "",
+			// 自定义 SDK JS 地址，防止 DNS 污染，留空使用默认地址
+			sdkUrl: "",
+			// 多个统计 ID 的数据分离标识，留空则使用 Id
+			ck: "",
+			// 是否开启事件分析功能
+			autoTrack: false,
+			//  Hash路由模式, 项目使用History API路由, 所以不必开启默认false
+			hashMode: false,
+			// 是否开启网站录屏功能
+			screenRecord: true,
+		},
 	},
 
 	// 图像优化及响应式配置

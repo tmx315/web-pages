@@ -50,6 +50,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "小何博客",
+		imgurl: "https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
+		desc: "abab",
+		siteurl: "https://小何.top/",
+		tags: ["友情"],
+		weight: 18,
+		enabled: true,
+	},
+	{
 		title: "CCWMORAN慕然科技",
 		imgurl: "https://gpo.saobby.com/i/XlQ1PmuU5UPnej02.webp",
 		desc: "愿你在峥嵘长青的世界里热忱不息",

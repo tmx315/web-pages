@@ -28,7 +28,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "一个简洁、美观、纯净、无广告的小站",
 		siteurl: "https://www.mxw2024.top/",
 		tags: ["官方"],
-		weight: 999, // 权重，数字越大排序越靠前
+		weight: 9999, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
 	},
 	{
@@ -37,7 +37,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "上海逆云企业有限公司成立于2019年，是一家专注于云游戏技术研发与服务的科技公司。公司致力于为游戏开发商和运营商提供稳定、高效的云游戏解决方案，帮助客户降低游戏运营成本，提升用户体验。",
 		siteurl: "https://www.niyunkeji.top",
 		tags: ["合作"],
-		weight: 998,
+		weight: 9998,
 		enabled: true,
 	},
 	{
@@ -46,11 +46,21 @@ export const friendsConfig: FriendLink[] = [
 		desc: "世界本就浑浊，罪与爱同歌",
 		siteurl: "https://www.nekt.qzz.io/",
 		tags: ["合作"],
-		weight: 997,
+		weight: 9997,
 		enabled: true,
 	},
 	{
-		title: "椰汁の小站",
+		title: "小何博客",
+		imgurl:
+			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
+		desc: "abab",
+		siteurl: "https://小何.top/",
+		tags: ["亲密朋友"],
+		weight: 999,
+		enabled: true,
+	},
+	{
+		title: "蜜窠工作室",
 		imgurl: "https://i2.qyimage.store:2999/i/210331c367084f6f",
 		desc: "专注MC内容制作与网站软件开发",
 		siteurl: "http://www.fgy.zhizhi.eu.org/",
@@ -65,16 +75,6 @@ export const friendsConfig: FriendLink[] = [
 		siteurl: "https://chch.dpdns.org/",
 		tags: ["友情"],
 		weight: 19,
-		enabled: true,
-	},
-	{
-		title: "小何博客",
-		imgurl:
-			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
-		desc: "abab",
-		siteurl: "https://小何.top/",
-		tags: ["友情"],
-		weight: 18,
 		enabled: true,
 	},
 	{

@@ -51,6 +51,15 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "椰汁の小站",
+		imgurl: "https://i2.qyimage.store:2999/i/210331c367084f6f",
+		desc: "介绍暂无，等待作者补充",
+		siteurl: "http://www.fgy.zhizhi.eu.org/",
+		tags: ["友情"],
+		weight: 20,
+		enabled: true,
+	},
+	{
+		title: "椰汁の小站",
 		imgurl: "https://avatars.githubusercontent.com/u/202359413?v=4&size=64",
 		desc: "欢迎访问",
 		siteurl: "https://chch.dpdns.org/",

@@ -5,7 +5,7 @@ export const announcementConfig: AnnouncementConfig = {
 	title: "公告",
 
 	// 公告内容
-	content: "欢迎来到我的博客！这是一则示例公告。",
+	content: "欢迎来到我的博客！我们与熵的小站合作啦，快去看看他的小站吧！",
 
 	// 是否允许用户关闭公告
 	closable: true,
@@ -14,10 +14,12 @@ export const announcementConfig: AnnouncementConfig = {
 		// 启用链接
 		enable: true,
 		// 链接文本
-		text: "了解更多",
+		text: "去看看",
 		// 链接 URL
-		url: "/about/",
+		url: "https://www.nekt.qzz.io/",
 		// 内部链接
-		external: false,
+		// false = 站内跳转 (SPA 路由)
+		// true = 打开新标签页
+		external: true,
 	},
 };

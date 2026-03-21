@@ -14,9 +14,6 @@ export const sponsorConfig: SponsorConfig = {
 	// 是否显示赞助者列表
 	showSponsorsList: true,
 
-	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
-	showComment: true,
-
 	// 是否在文章详情页底部显示赞助按钮
 	showButtonInPost: true,
 
@@ -51,7 +48,7 @@ export const sponsorConfig: SponsorConfig = {
 			name: "爱发电",
 			icon: "simple-icons:afdian",
 			qrCode: "",
-			link: "https://ifdian.net/a/cuteleaf",
+			link: "https://afdian.com/a/cuteleaf",
 			description: "通过 爱发电 进行赞助",
 			enabled: true,
 		},

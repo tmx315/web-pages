@@ -50,6 +50,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "椰汁の小站",
+		imgurl: "https://avatars.githubusercontent.com/u/202359413?v=4&size=64",
+		desc: "欢迎访问",
+		siteurl: "https://chch.dpdns.org/",
+		tags: ["友情"],
+		weight: 19,
+		enabled: true,
+	},
+	{
 		title: "小何博客",
 		imgurl: "https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
 		desc: "abab",

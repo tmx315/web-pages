@@ -132,11 +132,9 @@ const archiveUrl = url("/archive/");
     const archivePath = (bar.getAttribute("data-archive-path") || "/archive").replace(/\/$/, "");
     const isHome = pathname === homePath || pathname === "" || pathname === "/";
     const isArchive = pathname === archivePath;
-    // 分页页面（如 /2/, /3/）也属于首页的延续
-    const isHomePagination = /^\/\d+$/.test(pathname) || (homePath !== "" && new RegExp("^" + homePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\/\\d+$").test(pathname));
 
-    // 在首页、首页分页和归档页显示
-    if (!isHome && !isHomePagination && !isArchive) {
+    // 只在首页和归档页显示
+    if (!isHome && !isArchive) {
       bar.style.display = "none";
       return;
     }
@@ -151,7 +149,7 @@ const archiveUrl = url("/archive/");
 
     pills.forEach((pill) => pill.removeAttribute("data-active"));
 
-    if (isHome || isHomePagination) {
+    if (isHome) {
       bar.querySelector<HTMLAnchorElement>('.category-pill[data-category-name=""]')
         ?.setAttribute("data-active", "");
     } else if (activeCategory) {

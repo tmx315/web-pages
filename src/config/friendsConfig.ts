@@ -69,7 +69,8 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "小何博客",
-		imgurl: "https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
+		imgurl:
+			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
 		desc: "abab",
 		siteurl: "https://小何.top/",
 		tags: ["友情"],

@@ -1,6 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const { chromium } = require('playwright');
+import fs from 'fs';
+import path from 'path';
+import { chromium } from 'playwright';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const FRIENDS_CONFIG_PATH = path.join(__dirname, '../src/config/friendsConfig.ts');
 const OUTPUT_DIR = path.join(__dirname, '../public/gallery/friends');
@@ -11,11 +15,9 @@ async function extractSiteUrls() {
   const urlRegex = /siteurl:\s*["']([^"']+)["']/g;
   const enabledRegex = /enabled:\s*(true|false)/g;
 
-  const urls = [];
-  let match;
-  let lastIndex = 0;
   const matches = [];
 
+  let match;
   while ((match = urlRegex.exec(content)) !== null) {
     matches.push({ url: match[1], index: match.index });
   }
@@ -25,6 +27,7 @@ async function extractSiteUrls() {
     enabledMatches.push({ enabled: match[1] === 'true', index: match.index });
   }
 
+  const urls = [];
   for (const m of matches) {
     let isEnabled = true;
     for (const em of enabledMatches) {

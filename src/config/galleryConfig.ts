@@ -14,6 +14,14 @@ export const galleryConfig: GalleryConfig = {
 		// tags: 相册标签，用于分类和过滤
 		// 每添加一个数组项就相当于添加了一个相册，记得在 public/gallery/ 目录下创建对应的子目录并放入图片
 		{
+			id: "friends",
+			name: "友链筛查",
+			description: "自动对友链进行查看",
+			location: "友情链接",
+			date: "2026-03-22",
+			tags: ["友情链接", "友链"],
+		},
+		{
 			id: "mxw-2026",
 			name: "孟轩科技",
 			description: "一个简洁、美观、纯净、无广告的小站",

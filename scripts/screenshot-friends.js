@@ -108,15 +108,15 @@ async function takeScreenshot(url, outputPath) {
         // Try again on the new page
         await findAndScreenshotMengxuan(page, outputPath);
       } else {
-        // Take a screenshot of the current page anyway
-        await page.screenshot({ path: outputPath, fullPage: false });
-        console.log(`Screenshot saved (no "孟轩" found): ${outputPath}`);
+        // Take a full page screenshot of the current page
+        await page.screenshot({ path: outputPath, fullPage: true });
+        console.log(`Full page screenshot saved (no "孟轩" found): ${outputPath}`);
       }
     }
   } catch (error) {
     console.error(`Failed to screenshot ${url}: ${error.message}`);
     try {
-      await page.screenshot({ path: outputPath, fullPage: false });
+      await page.screenshot({ path: outputPath, fullPage: true });
     } catch (e) {
       console.error(`Failed to save error screenshot: ${e.message}`);
     }
@@ -138,16 +138,8 @@ async function findAndScreenshotMengxuan(page, outputPath) {
           await element.scrollIntoViewIfNeeded();
           const box = await element.boundingBox();
           if (box) {
-            await page.screenshot({
-              path: outputPath,
-              fullPage: false,
-              clip: {
-                x: Math.max(0, box.x - 100),
-                y: Math.max(0, box.y - 100),
-                width: Math.min(box.width + 200, 1280 - box.x),
-                height: Math.min(box.height + 200, 720 - box.y)
-              }
-            });
+            // Take full page screenshot
+            await page.screenshot({ path: outputPath, fullPage: true });
             return true;
           }
         }
@@ -159,16 +151,8 @@ async function findAndScreenshotMengxuan(page, outputPath) {
           await element.scrollIntoViewIfNeeded();
           const box = await element.boundingBox();
           if (box) {
-            await page.screenshot({
-              path: outputPath,
-              fullPage: false,
-              clip: {
-                x: Math.max(0, box.x - 100),
-                y: Math.max(0, box.y - 100),
-                width: Math.min(box.width + 200, 1280 - box.x),
-                height: Math.min(box.height + 200, 720 - box.y)
-              }
-            });
+            // Take full page screenshot
+            await page.screenshot({ path: outputPath, fullPage: true });
             return true;
           }
         }
@@ -179,7 +163,7 @@ async function findAndScreenshotMengxuan(page, outputPath) {
         const content = await page.content();
         if (content.includes('孟轩')) {
           // Take full page screenshot
-          await page.screenshot({ path: outputPath, fullPage: false });
+          await page.screenshot({ path: outputPath, fullPage: true });
           return true;
         }
         return false;
@@ -188,7 +172,7 @@ async function findAndScreenshotMengxuan(page, outputPath) {
 
     for (const method of methods) {
       if (await method()) {
-        console.log(`Found "孟轩" and screenshot saved: ${outputPath}`);
+        console.log(`Found "孟轩" and full page screenshot saved: ${outputPath}`);
         return true;
       }
     }

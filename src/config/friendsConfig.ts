@@ -64,8 +64,8 @@ export const friendsConfig: FriendLink[] = [
 			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
 		desc: "abab",
 		siteurl: "https://小何.top/",
-		tags: ["亲密朋友"],
-		weight: 999,
+		tags: ["友情"],
+		weight: 19,
 		enabled: true,
 	},
 	{

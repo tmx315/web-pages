@@ -1,0 +1,46 @@
+name: Screenshot Friend Links
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install Playwright and dependencies
+        run: |
+          pnpm add playwright
+          npx playwright install chromium --with-deps
+
+      - name: Create output directory
+        run: mkdir -p public/gallery/friends
+
+      - name: Run screenshot script
+        run: node scripts/screenshot-friends.js
+
+      - name: Commit and push screenshots
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/gallery/friends/
+          git diff --staged --quiet || git commit -m "Update friend link screenshots $(date +'%Y-%m-%d %H:%M:%S')"
+          git push

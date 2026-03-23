@@ -29,14 +29,8 @@ onMount(() => {
 	if (savedLayout && (savedLayout === "list" || savedLayout === "grid")) {
 		currentLayout = savedLayout;
 	} else {
-		// 如果没有保存的偏好，根据视口宽度使用对应的默认布局
-		const mobileDefault =
-			siteConfig.postListLayout.mobileDefaultMode ||
-			siteConfig.postListLayout.defaultMode;
-		currentLayout =
-			window.innerWidth < 780
-				? mobileDefault
-				: currentLayout || siteConfig.postListLayout.defaultMode;
+		// 如果没有保存的偏好，使用传入的默认布局（从props）
+		// currentLayout已经在声明时设置了默认值
 	}
 
 	// 监听窗口大小变化

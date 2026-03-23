@@ -42,5 +42,6 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add public/gallery/friends/
-          git diff --staged --quiet || git commit -m "Update friend link screenshots $(date +'%Y-%m-%d %H:%M:%S')"
+          git add src/content/posts/Friend-Link-Monitor.md
+          git diff --staged --quiet || git commit -m "Update friend link screenshots and monitor report $(date +'%Y-%m-%d %H:%M:%S')"
           git push

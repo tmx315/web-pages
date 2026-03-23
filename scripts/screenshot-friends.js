@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const FRIENDS_CONFIG_PATH = path.join(__dirname, '../src/config/friendsConfig.ts');
 const OUTPUT_DIR = path.join(__dirname, '../public/gallery/friends');
+const REPORT_TEMPLATE_PATH = path.join(__dirname, '../src/content/posts/Friend-Link-Monitor.md');
 
 const MAX_RUNS_PER_DAY = 5;
 const TODAY = new Date().toISOString().split('T')[0];
@@ -154,7 +155,7 @@ async function findAndScrollToMengxuan(page) {
   return false;
 }
 
-async function takeScreenshot(url) {
+async function takeScreenshot(url, index, total) {
   const browser = await chromium.launch();
   const context = await browser.newContext({
     viewport: { width: 1920, height: 1080 },
@@ -163,28 +164,35 @@ async function takeScreenshot(url) {
   const page = await context.newPage();
 
   const sanitizedTitle = url.replace(/https?:\/\//, '').replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
-  const baseFilename = `${String(getRunCounter() + 1).padStart(3, '0')}_${sanitizedTitle}`;
+  const baseFilename = `${String(index).padStart(3, '0')}_${sanitizedTitle}`;
   const homepagePath = generateUniqueFilename(`${baseFilename}_homepage`);
   const mengxuanPath = generateUniqueFilename(`${baseFilename}_mengxuan`);
 
-  let mengxuanFound = false;
+  const result = {
+    url,
+    status: 'unknown',
+    error: null,
+    homepageScreenshot: null,
+    mengxuanScreenshot: null,
+    mengxuanFound: false,
+  };
 
   try {
-    console.log(`Visited: ${url}`);
+    console.log(`[${index}/${total}] Visiting: ${url}`);
     await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
     await checkCloudflare(page);
 
-    // Take homepage screenshot
+    result.homepageScreenshot = path.basename(homepagePath);
     await page.screenshot({ path: homepagePath, fullPage: false });
-    console.log(`Homepage screenshot saved: ${homepagePath}`);
+    console.log(`Homepage screenshot saved: ${result.homepageScreenshot}`);
 
-    // Try to find "孟轩" and scroll to it
-    mengxuanFound = await findAndScrollToMengxuan(page);
+    result.mengxuanFound = await findAndScrollToMengxuan(page);
 
-    if (mengxuanFound) {
-      // Take screenshot with "孟轩" in view
+    if (result.mengxuanFound) {
+      result.mengxuanScreenshot = path.basename(mengxuanPath);
       await page.screenshot({ path: mengxuanPath, fullPage: false });
-      console.log(`Mengxuan screenshot saved: ${mengxuanPath}`);
+      console.log(`Mengxuan screenshot saved: ${result.mengxuanScreenshot}`);
+      result.status = 'normal';
     } else {
       console.log(`"孟轩" not found on ${url}, trying to find friend link...`);
 
@@ -200,31 +208,129 @@ async function takeScreenshot(url) {
         await page.reload({ waitUntil: 'networkidle', timeout: 60000 });
         await checkCloudflare(page);
 
-        // Take homepage screenshot of the friend page
+        result.homepageScreenshot = path.basename(homepagePath);
         await page.screenshot({ path: homepagePath, fullPage: false });
-        console.log(`Homepage screenshot saved: ${homepagePath}`);
+        console.log(`Homepage screenshot saved: ${result.homepageScreenshot}`);
 
-        // Try to find "孟轩" and scroll to it
-        mengxuanFound = await findAndScrollToMengxuan(page);
+        result.mengxuanFound = await findAndScrollToMengxuan(page);
 
-        if (mengxuanFound) {
+        if (result.mengxuanFound) {
+          result.mengxuanScreenshot = path.basename(mengxuanPath);
           await page.screenshot({ path: mengxuanPath, fullPage: false });
-          console.log(`Mengxuan screenshot saved: ${mengxuanPath}`);
+          console.log(`Mengxuan screenshot saved: ${result.mengxuanScreenshot}`);
+          result.status = 'normal';
+        } else {
+          result.status = 'not_found';
         }
+      } else {
+        result.status = 'not_found';
       }
     }
   } catch (error) {
     console.error(`Failed to screenshot ${url}: ${error.message}`);
+    result.status = 'error';
+    result.error = error.message;
 
     try {
+      result.homepageScreenshot = path.basename(homepagePath);
       await page.screenshot({ path: homepagePath, fullPage: false });
-      console.log(`Error homepage screenshot saved: ${homepagePath}`);
     } catch (e) {
       console.error(`Failed to save error screenshot: ${e.message}`);
     }
   } finally {
     await browser.close();
   }
+
+  return result;
+}
+
+function generateReport(results) {
+  const now = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+  const total = results.length;
+  const normalCount = results.filter(r => r.status === 'normal').length;
+  const errorCount = results.filter(r => r.status === 'error').length;
+  const notFoundCount = results.filter(r => r.status === 'not_found').length;
+  const inaccessibleCount = errorCount;
+
+  let friendLinksTable = `| 序号 | 网站 | 状态 | 主页截图 | 友链截图 |\n`;
+  friendLinksTable += `|------|------|------|----------|----------|\n`;
+
+  results.forEach((r, i) => {
+    const statusText = r.status === 'normal' ? '✅ 正常' : r.status === 'not_found' ? '⚠️ 未找到' : '❌ 无法访问';
+    const homepageImg = r.homepageScreenshot ? `![截图](/gallery/friends/${r.homepageScreenshot})` : '-';
+    const mengxuanImg = r.mengxuanScreenshot ? `![截图](/gallery/friends/${r.mengxuanScreenshot})` : '-';
+    friendLinksTable += `| ${i + 1} | ${r.url} | ${statusText} | ${homepageImg} | ${mengxuanImg} |\n`;
+  });
+
+  let inaccessibleList = '以下网站无法正常访问：\n\n';
+
+  const inaccessibleSites = results.filter(r => r.status === 'error');
+  if (inaccessibleSites.length === 0) {
+    inaccessibleList = '所有友链网站均可正常访问！🎉\n';
+  } else {
+    inaccessibleSites.forEach((r, i) => {
+      const errorType = r.error.includes('CERT') ? '证书错误' :
+        r.error.includes('timeout') ? '连接超时' :
+        r.error.includes('DNS') ? 'DNS解析失败' : '其他错误';
+      inaccessibleList += `${i + 1}. **${r.url}** - ${errorType}\n   - 错误信息：${r.error}\n`;
+    });
+  }
+
+  let screenshotsNormal = '\n';
+  const normalSites = results.filter(r => r.status === 'normal');
+  normalSites.forEach(r => {
+    if (r.homepageScreenshot) {
+      screenshotsNormal += `### ${r.url}\n\n`;
+      screenshotsNormal += `**主页截图**\n![主页截图](/gallery/friends/${r.homepageScreenshot})\n\n`;
+    }
+    if (r.mengxuanScreenshot) {
+      screenshotsNormal += `**友链位置截图**\n![友链截图](/gallery/friends/${r.mengxuanScreenshot})\n\n`;
+    }
+  });
+
+  let screenshotsError = '\n';
+  const errorSites = results.filter(r => r.status === 'error' || r.status === 'not_found');
+  errorSites.forEach(r => {
+    screenshotsError += `### ${r.url}\n\n`;
+    if (r.homepageScreenshot) {
+      screenshotsError += `![截图](/gallery/friends/${r.homepageScreenshot})\n`;
+    } else {
+      screenshotsError += `无法获取截图 - ${r.error || '未找到友链'}\n`;
+    }
+    screenshotsError += '\n';
+  });
+
+  return {
+    now,
+    total,
+    normalCount,
+    errorCount,
+    notFoundCount,
+    inaccessibleCount,
+    friendLinksTable,
+    inaccessibleList,
+    screenshotsNormal,
+    screenshotsError,
+  };
+}
+
+function updateReportTemplate(reportData) {
+  let content = fs.readFileSync(REPORT_TEMPLATE_PATH, 'utf-8');
+
+  content = content.replace(/<!-- REPORT_TIME -->/g, reportData.now);
+  content = content.replace(/<!-- TOTAL_SITES -->/g, reportData.total);
+  content = content.replace(/<!-- ACCESSIBLE_SITES -->/g, reportData.normalCount);
+  content = content.replace(/<!-- INACCESSIBLE_SITES -->/g, reportData.inaccessibleCount);
+  content = content.replace(/<!-- NORMAL_COUNT -->/g, reportData.normalCount);
+  content = content.replace(/<!-- INACCESSIBLE_COUNT -->/g, reportData.inaccessibleCount);
+  content = content.replace(/<!-- CERT_ERROR_COUNT -->/g, reportData.errorCount);
+  content = content.replace(/<!-- TIMEOUT_COUNT -->/g, 0);
+  content = content.replace(/<!-- FRIEND_LINKS_TABLE -->/g, reportData.friendLinksTable);
+  content = content.replace(/<!-- INACCESSIBLE_LIST -->/g, reportData.inaccessibleList);
+  content = content.replace(/<!-- SCREENSHOTS_NORMAL -->/g, reportData.screenshotsNormal);
+  content = content.replace(/<!-- SCREENSHOTS_ERROR -->/g, reportData.screenshotsError);
+
+  return content;
 }
 
 async function main() {
@@ -246,11 +352,21 @@ async function main() {
   const urls = await extractSiteUrls();
   console.log(`Found ${urls.length} friend links to screenshot`);
 
-  for (const url of urls) {
-    await takeScreenshot(url);
+  const results = [];
+  for (let i = 0; i < urls.length; i++) {
+    const result = await takeScreenshot(urls[i], i + 1, urls.length);
+    results.push(result);
   }
 
+  console.log('Generating report...');
+  const reportData = generateReport(results);
+  const updatedContent = updateReportTemplate(reportData);
+
+  fs.writeFileSync(REPORT_TEMPLATE_PATH, updatedContent, 'utf-8');
+  console.log(`Report updated: ${REPORT_TEMPLATE_PATH}`);
+
   console.log(`Screenshots completed! (${runNumber}/${MAX_RUNS_PER_DAY} today)`);
+  console.log(`Summary: ${reportData.normalCount}/${reportData.total} sites accessible`);
 }
 
 main().catch(console.error);

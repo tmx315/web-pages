@@ -42,10 +42,31 @@ async function extractSiteUrls() {
   return [...new Set(urls)];
 }
 
+async function checkCloudflare(page) {
+  try {
+    const title = await page.title();
+    if (title.includes('Cloudflare') || title.includes('Checking your browser')) {
+      console.log('Detected Cloudflare challenge, waiting...');
+      await page.waitForTimeout(5000);
+      return true;
+    }
+    const content = await page.content();
+    if (content.includes('Cloudflare') && content.includes('Checking your browser')) {
+      console.log('Detected Cloudflare challenge in content, waiting...');
+      await page.waitForTimeout(5000);
+      return true;
+    }
+  } catch (e) {
+    // Continue
+  }
+  return false;
+}
+
 async function findAndClickFriendLink(page) {
   const friendLinkSelectors = [
     'a[href*="friend"]',
     'a[href*="links"]',
+    'a:has-text("友链")',
     'a:has-text("友链")',
     'a:has-text("友情链接")',
     'a:has-text("朋友")',
@@ -64,10 +85,11 @@ async function findAndClickFriendLink(page) {
         if (text && (text.includes('友链') || text.includes('链接') || text.includes('朋友') || text.includes('link'))) {
           const href = await link.getAttribute('href');
           if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
-            console.log(`Found friend link: ${text} -> ${href}`);
+            console.log(`Found friend link: ${text.trim()} -> ${href}`);
             await link.click();
-            await page.waitForLoadState('networkidle', { timeout: 10000 });
-            return true;
+            await page.waitForTimeout(2000);
+            await checkCloudflare(page);
+            return href;
           }
         }
       }
@@ -75,48 +97,57 @@ async function findAndClickFriendLink(page) {
       // Continue to next selector
     }
   }
-  return false;
+  return null;
 }
 
 async function takeScreenshot(url, outputPath) {
   const browser = await chromium.launch();
   const context = await browser.newContext({
-    viewport: { width: 1280, height: 720 }
+    viewport: { width: 1920, height: 1080 }
   });
   const page = await context.newPage();
 
   try {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
     console.log(`Visited: ${url}`);
+    await checkCloudflare(page);
+
+    // Take a normal screenshot (1080p, not full page)
+    await page.screenshot({ path: outputPath, fullPage: false });
+    console.log(`Screenshot saved: ${outputPath}`);
 
     // Try to find "孟轩" text on the page
-    const mengxuanFound = await findAndScreenshotMengxuan(page, outputPath);
+    let mengxuanFound = await checkMengxuan(page);
 
     if (!mengxuanFound) {
       console.log(`"孟轩" not found on ${url}, trying to find friend link...`);
 
-      // Try to click on friend link and look again
-      const clicked = await findAndClickFriendLink(page);
+      const clickedHref = await findAndClickFriendLink(page);
 
-      if (clicked) {
+      if (clickedHref) {
         const currentUrl = page.url();
         console.log(`Navigated to: ${currentUrl}`);
 
         // Wait for page to fully load
-        await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+        await page.waitForTimeout(2000);
+        await checkCloudflare(page);
 
-        // Try again on the new page
-        await findAndScreenshotMengxuan(page, outputPath);
-      } else {
-        // Take a full page screenshot of the current page
-        await page.screenshot({ path: outputPath, fullPage: true });
-        console.log(`Full page screenshot saved (no "孟轩" found): ${outputPath}`);
+        // Reload page to ensure fresh content (some sites use SPA without reload)
+        await page.reload({ waitUntil: 'networkidle', timeout: 30000 });
+        await checkCloudflare(page);
+
+        // Take another screenshot
+        await page.screenshot({ path: outputPath, fullPage: false });
+        console.log(`Screenshot saved after navigation: ${outputPath}`);
+
+        // Check for "孟轩" on the new page
+        await checkMengxuan(page);
       }
     }
   } catch (error) {
     console.error(`Failed to screenshot ${url}: ${error.message}`);
     try {
-      await page.screenshot({ path: outputPath, fullPage: true });
+      await page.screenshot({ path: outputPath, fullPage: false });
     } catch (e) {
       console.error(`Failed to save error screenshot: ${e.message}`);
     }
@@ -125,59 +156,22 @@ async function takeScreenshot(url, outputPath) {
   }
 }
 
-async function findAndScreenshotMengxuan(page, outputPath) {
+async function checkMengxuan(page) {
   try {
-    // Wait for page to be fully loaded
     await page.waitForLoadState('domcontentloaded');
 
-    // Try different methods to find "孟轩"
-    const methods = [
-      async () => {
-        const element = page.locator('text=MengXuan').first();
-        if (await element.count() > 0) {
-          await element.scrollIntoViewIfNeeded();
-          const box = await element.boundingBox();
-          if (box) {
-            // Take full page screenshot
-            await page.screenshot({ path: outputPath, fullPage: true });
-            return true;
-          }
-        }
-        return false;
-      },
-      async () => {
-        const element = page.locator('text=孟轩').first();
-        if (await element.count() > 0) {
-          await element.scrollIntoViewIfNeeded();
-          const box = await element.boundingBox();
-          if (box) {
-            // Take full page screenshot
-            await page.screenshot({ path: outputPath, fullPage: true });
-            return true;
-          }
-        }
-        return false;
-      },
-      async () => {
-        // Check page content for "孟轩"
-        const content = await page.content();
-        if (content.includes('孟轩')) {
-          // Take full page screenshot
-          await page.screenshot({ path: outputPath, fullPage: true });
-          return true;
-        }
-        return false;
-      }
-    ];
+    // Check various forms of "孟轩"
+    const keywords = ['孟轩', 'MengXuan', 'mengxuan', 'MX', 'mx'];
 
-    for (const method of methods) {
-      if (await method()) {
-        console.log(`Found "孟轩" and full page screenshot saved: ${outputPath}`);
+    for (const keyword of keywords) {
+      const count = await page.locator(`text=${keyword}`).count();
+      if (count > 0) {
+        console.log(`Found "${keyword}" on the page (${count} occurrences)`);
         return true;
       }
     }
   } catch (e) {
-    console.log(`Error finding "孟轩": ${e.message}`);
+    console.log(`Error checking for "孟轩": ${e.message}`);
   }
   return false;
 }
@@ -192,7 +186,7 @@ async function main() {
 
   let index = 1;
   for (const url of urls) {
-    const sanitizedTitle = url.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
+    const sanitizedTitle = url.replace(/https?:\/\//, '').replace(/[^a-zA-Z0-9]/g, '_').substring(0, 50);
     const outputPath = path.join(OUTPUT_DIR, `${String(index).padStart(3, '0')}_${sanitizedTitle}.png`);
     await takeScreenshot(url, outputPath);
     index++;

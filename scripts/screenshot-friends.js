@@ -103,20 +103,19 @@ async function findAndClickFriendLink(page) {
 async function takeScreenshot(url, outputPath) {
   const browser = await chromium.launch();
   const context = await browser.newContext({
-    viewport: { width: 1920, height: 1080 }
+    viewport: { width: 1920, height: 1080 },
+    ignoreHTTPSErrors: true,
   });
   const page = await context.newPage();
 
   try {
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
     console.log(`Visited: ${url}`);
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
     await checkCloudflare(page);
 
-    // Take a normal screenshot (1080p, not full page)
     await page.screenshot({ path: outputPath, fullPage: false });
     console.log(`Screenshot saved: ${outputPath}`);
 
-    // Try to find "孟轩" text on the page
     let mengxuanFound = await checkMengxuan(page);
 
     if (!mengxuanFound) {
@@ -128,26 +127,24 @@ async function takeScreenshot(url, outputPath) {
         const currentUrl = page.url();
         console.log(`Navigated to: ${currentUrl}`);
 
-        // Wait for page to fully load
         await page.waitForTimeout(2000);
         await checkCloudflare(page);
 
-        // Reload page to ensure fresh content (some sites use SPA without reload)
-        await page.reload({ waitUntil: 'networkidle', timeout: 30000 });
+        await page.reload({ waitUntil: 'networkidle', timeout: 60000 });
         await checkCloudflare(page);
 
-        // Take another screenshot
         await page.screenshot({ path: outputPath, fullPage: false });
         console.log(`Screenshot saved after navigation: ${outputPath}`);
 
-        // Check for "孟轩" on the new page
         await checkMengxuan(page);
       }
     }
   } catch (error) {
     console.error(`Failed to screenshot ${url}: ${error.message}`);
+
     try {
       await page.screenshot({ path: outputPath, fullPage: false });
+      console.log(`Error screenshot saved: ${outputPath}`);
     } catch (e) {
       console.error(`Failed to save error screenshot: ${e.message}`);
     }
@@ -160,8 +157,7 @@ async function checkMengxuan(page) {
   try {
     await page.waitForLoadState('domcontentloaded');
 
-    // Check various forms of "孟轩"
-    const keywords = ['孟轩', 'MengXuan', 'mengxuan', 'MX', 'mx'];
+    const keywords = ['孟轩', 'MengXuan', 'mengxuan'];
 
     for (const keyword of keywords) {
       const count = await page.locator(`text=${keyword}`).count();

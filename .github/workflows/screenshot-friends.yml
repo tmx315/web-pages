@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,11 +39,16 @@ jobs:
       - name: Run screenshot script
         run: node scripts/screenshot-friends.js
 
-      - name: Commit and push screenshots
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add public/gallery/friends/
-          git add src/content/posts/Friend-Link-Monitor.md
-          git diff --staged --quiet || git commit -m "Update friend link screenshots and monitor report $(date +'%Y-%m-%d %H:%M:%S')"
-          git push
+          git config --local pull.rebase false
+
+          git add -A
+          git status
+
+          TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
+          git commit -m "Update friend link screenshots and monitor report $TIMESTAMP" || echo "No changes to commit"
+
+          git push origin master --force-with-lease

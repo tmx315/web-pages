@@ -8,7 +8,7 @@ draft: false
 pinned: false
 author: "孟轩科技"
 licenseName: "CC BY 4.0"
-image: ./images/placeholder.png
+image: /gallery/friends/001_www_mxw2024_top_.png
 sourceLink: "https://blog.mxw2024.top/posts/friend-link-monitor/"
 ---
 

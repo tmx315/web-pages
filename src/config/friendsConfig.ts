@@ -16,6 +16,9 @@ export const friendsPageConfig: FriendsPageConfig = {
 	// 是否显示底部自定义内容（friends.mdx 中的内容）
 	showCustomContent: true,
 
+	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
+	showComment: true,
+
 	// 是否开启随机排序配置，如果开启，就会忽略权重，构建时进行一次随机排序
 	randomizeSort: false,
 };
@@ -23,12 +26,22 @@ export const friendsPageConfig: FriendsPageConfig = {
 // 友链配置
 export const friendsConfig: FriendLink[] = [
 	{
+<<<<<<< HEAD
 		title: "孟轩网的小站",
 		imgurl: "https://www.mxw2024.top/favicon.ico",
 		desc: "一个简洁、美观、纯净、无广告的小站",
 		siteurl: "https://www.mxw2024.top/",
 		tags: ["官方"],
 		weight: 9999, // 权重，数字越大排序越靠前
+=======
+		title: "夏夜流萤",
+		imgurl:
+			"https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640",
+		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
+		siteurl: "https://blog.cuteleaf.cn",
+		tags: ["Blog"],
+		weight: 10, // 权重，数字越大排序越靠前
+>>>>>>> upstream/master
 		enabled: true, // 是否启用
 	},
 	{

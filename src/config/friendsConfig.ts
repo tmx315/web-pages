@@ -63,7 +63,8 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "小何博客",
-		imgurl: "https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
+		imgurl:
+			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
 		desc: "abab",
 		siteurl: "https://小何.top/",
 		tags: ["友情"],
@@ -189,7 +190,8 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "Inalineの小站",
-		imgurl: "https://inaline.net/usr/themes/inaline/assets/images/logo/cover.png",
+		imgurl:
+			"https://inaline.net/usr/themes/inaline/assets/images/logo/cover.png",
 		desc: "此情可待成追忆，只是当时已惘然",
 		siteurl: "https://inaline.net",
 		tags: ["友情"],
@@ -225,7 +227,8 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "Weiwei's blog",
-		imgurl: "https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
+		imgurl:
+			"https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
 		desc: "耐心是生活的关键",
 		siteurl: "https://www.lov3u.top/",
 		tags: ["友情"],

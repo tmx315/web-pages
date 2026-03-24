@@ -62,6 +62,16 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "涵云社区",
+		imgurl:
+			"https://www.hanyor.com/view/img/logo.png",
+		desc: "涵云社区是一个集知识分享、互动交流和知识问答于一体的综合性在线社区平台",
+		siteurl: "https://www.hanyor.com/",
+		tags: ["友情"],
+		weight: 20,
+		enabled: true,
+	},
+	{
 		title: "小何博客",
 		imgurl:
 			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",

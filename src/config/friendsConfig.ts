@@ -63,8 +63,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "涵云社区",
-		imgurl:
-			"https://www.hanyor.com/view/img/logo.png",
+		imgurl: "https://www.hanyor.com/view/img/logo.png",
 		desc: "涵云社区是一个集知识分享、互动交流和知识问答于一体的综合性在线社区平台",
 		siteurl: "https://www.hanyor.com/",
 		tags: ["友情"],

@@ -26,23 +26,13 @@ export const friendsPageConfig: FriendsPageConfig = {
 // 友链配置
 export const friendsConfig: FriendLink[] = [
 	{
-<<<<<<< HEAD
 		title: "孟轩网的小站",
 		imgurl: "https://www.mxw2024.top/favicon.ico",
 		desc: "一个简洁、美观、纯净、无广告的小站",
 		siteurl: "https://www.mxw2024.top/",
 		tags: ["官方"],
-		weight: 9999, // 权重，数字越大排序越靠前
-=======
-		title: "夏夜流萤",
-		imgurl:
-			"https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640",
-		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
-		siteurl: "https://blog.cuteleaf.cn",
-		tags: ["Blog"],
-		weight: 10, // 权重，数字越大排序越靠前
->>>>>>> upstream/master
-		enabled: true, // 是否启用
+		weight: 9999,
+		enabled: true,
 	},
 	{
 		title: "晚梦云科技官网",
@@ -73,8 +63,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "小何博客",
-		imgurl:
-			"https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
+		imgurl: "https://小何.top/wp-content/uploads/2026/01/1769857787-IMG_20260131_170740.png",
 		desc: "abab",
 		siteurl: "https://小何.top/",
 		tags: ["友情"],
@@ -200,8 +189,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "Inalineの小站",
-		imgurl:
-			"https://inaline.net/usr/themes/inaline/assets/images/logo/cover.png",
+		imgurl: "https://inaline.net/usr/themes/inaline/assets/images/logo/cover.png",
 		desc: "此情可待成追忆，只是当时已惘然",
 		siteurl: "https://inaline.net",
 		tags: ["友情"],
@@ -237,8 +225,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "Weiwei's blog",
-		imgurl:
-			"https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
+		imgurl: "https://www.lov3u.top/wp-content/uploads/2026/02/Screenshot_20251221_094851_compressed_1769957339168.jpg",
 		desc: "耐心是生活的关键",
 		siteurl: "https://www.lov3u.top/",
 		tags: ["友情"],

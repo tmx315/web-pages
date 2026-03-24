@@ -32,7 +32,11 @@ sourceLink: "https://blog.mxw2024.top/posts/friend-link-monitor/"
 
 ## 详细报告
 
+<div class="overflow-x-auto">
+
 <!-- FRIEND_LINKS_TABLE -->
+
+</div>
 
 ## 无法访问的网站
 
@@ -76,3 +80,38 @@ sourceLink: "https://blog.mxw2024.top/posts/friend-link-monitor/"
 
 - [2026-03-22 友链监控报告](./friend-link-monitor-2026-03-22)
 - [2026-03-21 友链监控报告](./friend-link-monitor-2026-03-21)
+
+<style>
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .screenshot-item {
+    border: 1px solid var(--line-divider);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+  }
+  .screenshot-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+  }
+  .screenshot-item p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  .site-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+  }
+  .status-ok { background: #dcfce7; color: #166534; }
+  .status-warn { background: #fef9c3; color: #854d0e; }
+  .status-error { background: #fee2e2; color: #991b1b; }
+</style>

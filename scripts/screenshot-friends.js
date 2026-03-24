@@ -244,6 +244,15 @@ async function takeScreenshot(url, index, total) {
   return result;
 }
 
+function getStatusLabel(status) {
+  switch (status) {
+    case 'normal': return '<span class="site-status status-ok">✅ 正常</span>';
+    case 'not_found': return '<span class="site-status status-warn">⚠️ 未找到</span>';
+    case 'error': return '<span class="site-status status-error">❌ 无法访问</span>';
+    default: return '<span class="site-status">未知</span>';
+  }
+}
+
 function generateReport(results) {
   const now = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
   const total = results.length;
@@ -252,53 +261,64 @@ function generateReport(results) {
   const notFoundCount = results.filter(r => r.status === 'not_found').length;
   const inaccessibleCount = errorCount;
 
-  let friendLinksTable = `| 序号 | 网站 | 状态 | 主页截图 | 友链截图 |\n`;
-  friendLinksTable += `|------|------|------|----------|----------|\n`;
+  let friendLinksTable = `<table>
+<tr><th>序号</th><th>网站</th><th>状态</th><th>主页</th><th>友链</th></tr>\n`;
 
   results.forEach((r, i) => {
-    const statusText = r.status === 'normal' ? '✅ 正常' : r.status === 'not_found' ? '⚠️ 未找到' : '❌ 无法访问';
-    const homepageImg = r.homepageScreenshot ? `![截图](/gallery/friends/${r.homepageScreenshot})` : '-';
-    const mengxuanImg = r.mengxuanScreenshot ? `![截图](/gallery/friends/${r.mengxuanScreenshot})` : '-';
-    friendLinksTable += `| ${i + 1} | ${r.url} | ${statusText} | ${homepageImg} | ${mengxuanImg} |\n`;
+    const statusBadge = getStatusLabel(r.status);
+    const homepageLink = r.homepageScreenshot
+      ? `<a href="/gallery/friends/${r.homepageScreenshot}" target="_blank"><img src="/gallery/friends/${r.homepageScreenshot}" alt="主页" style="width:120px;"></a>`
+      : '-';
+    const mengxuanLink = r.mengxuanScreenshot
+      ? `<a href="/gallery/friends/${r.mengxuanScreenshot}" target="_blank"><img src="/gallery/friends/${r.mengxuanScreenshot}" alt="友链" style="width:120px;"></a>`
+      : '-';
+    friendLinksTable += `<tr><td>${i + 1}</td><td><a href="${r.url}" target="_blank">${r.url}</a></td><td>${statusBadge}</td><td>${homepageLink}</td><td>${mengxuanLink}</td></tr>\n`;
   });
+  friendLinksTable += '</table>';
 
-  let inaccessibleList = '以下网站无法正常访问：\n\n';
-
+  let inaccessibleList = '';
   const inaccessibleSites = results.filter(r => r.status === 'error');
   if (inaccessibleSites.length === 0) {
-    inaccessibleList = '所有友链网站均可正常访问！🎉\n';
+    inaccessibleList = '<p>所有友链网站均可正常访问！🎉</p>\n';
   } else {
+    inaccessibleList += '<ul>\n';
     inaccessibleSites.forEach((r, i) => {
       const errorType = r.error.includes('CERT') ? '证书错误' :
         r.error.includes('timeout') ? '连接超时' :
         r.error.includes('DNS') ? 'DNS解析失败' : '其他错误';
-      inaccessibleList += `${i + 1}. **${r.url}** - ${errorType}\n   - 错误信息：${r.error}\n`;
+      inaccessibleList += `<li><strong>${r.url}</strong> - ${errorType}<br><small>${r.error}</small></li>\n`;
     });
+    inaccessibleList += '</ul>\n';
   }
 
-  let screenshotsNormal = '\n';
+  let screenshotsNormal = '<div class="screenshot-grid">\n';
   const normalSites = results.filter(r => r.status === 'normal');
   normalSites.forEach(r => {
+    screenshotsNormal += `<div class="screenshot-item">\n`;
+    screenshotsNormal += `<p><strong><a href="${r.url}" target="_blank">${r.url}</a></strong></p>\n`;
     if (r.homepageScreenshot) {
-      screenshotsNormal += `### ${r.url}\n\n`;
-      screenshotsNormal += `**主页截图**\n![主页截图](/gallery/friends/${r.homepageScreenshot})\n\n`;
+      screenshotsNormal += `<p><small>主页</small></p><img src="/gallery/friends/${r.homepageScreenshot}" alt="主页截图">\n`;
     }
     if (r.mengxuanScreenshot) {
-      screenshotsNormal += `**友链位置截图**\n![友链截图](/gallery/friends/${r.mengxuanScreenshot})\n\n`;
+      screenshotsNormal += `<p><small>友链</small></p><img src="/gallery/friends/${r.mengxuanScreenshot}" alt="友链截图">\n`;
     }
+    screenshotsNormal += `</div>\n`;
   });
+  screenshotsNormal += '</div>\n';
 
-  let screenshotsError = '\n';
+  let screenshotsError = '<div class="screenshot-grid">\n';
   const errorSites = results.filter(r => r.status === 'error' || r.status === 'not_found');
   errorSites.forEach(r => {
-    screenshotsError += `### ${r.url}\n\n`;
+    screenshotsError += `<div class="screenshot-item">\n`;
+    screenshotsError += `<p><strong><a href="${r.url}" target="_blank">${r.url}</a></strong></p>\n`;
     if (r.homepageScreenshot) {
-      screenshotsError += `![截图](/gallery/friends/${r.homepageScreenshot})\n`;
+      screenshotsError += `<img src="/gallery/friends/${r.homepageScreenshot}" alt="截图">\n`;
     } else {
-      screenshotsError += `无法获取截图 - ${r.error || '未找到友链'}\n`;
+      screenshotsError += `<p>无法获取截图 - ${r.error || '未找到友链'}</p>\n`;
     }
-    screenshotsError += '\n';
+    screenshotsError += `</div>\n`;
   });
+  screenshotsError += '</div>\n';
 
   return {
     now,

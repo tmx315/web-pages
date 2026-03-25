@@ -217,7 +217,7 @@ importers:
         specifier: ^2.16.1
         version: 2.16.1
       playwright:
-        specifier: ^1.49.0
+        specifier: ^1.58.2
         version: 1.58.2
       postcss-import:
         specifier: ^16.1.1

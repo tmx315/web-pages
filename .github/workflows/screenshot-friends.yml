@@ -5,14 +5,15 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   screenshot:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -43,12 +44,10 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git config --local pull.rebase false
 
           git add -A
-          git status
 
           TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
           git commit -m "Update friend link screenshots and monitor report $TIMESTAMP" || echo "No changes to commit"
 
-          git push origin master --force-with-lease
+          git push

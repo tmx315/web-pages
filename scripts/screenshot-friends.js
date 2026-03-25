@@ -12,6 +12,7 @@ const REPORT_TEMPLATE_PATH = path.join(__dirname, '../src/content/posts/Friend-L
 
 const MAX_RUNS_PER_DAY = 5;
 const TODAY = new Date().toISOString().split('T')[0];
+const MAX_CONCURRENT = 3;
 
 function getRunCounter() {
   const counterFile = path.join(OUTPUT_DIR, `.run_counter_${TODAY}`);
@@ -81,13 +82,13 @@ async function checkCloudflare(page) {
     const title = await page.title();
     if (title.includes('Cloudflare') || title.includes('Checking your browser')) {
       console.log('Detected Cloudflare challenge, waiting...');
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
       return true;
     }
     const content = await page.content();
     if (content.includes('Cloudflare') && content.includes('Checking your browser')) {
       console.log('Detected Cloudflare challenge in content, waiting...');
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(3000);
       return true;
     }
   } catch (e) {
@@ -101,14 +102,12 @@ async function findAndClickFriendLink(page) {
     'a[href*="friend"]',
     'a[href*="links"]',
     'a:has-text("友链")',
-    'a:has-text("友链")',
     'a:has-text("友情链接")',
     'a:has-text("朋友")',
     'nav a',
     '.nav a',
     'header a',
     'menu a',
-    '[class*="link"] a',
   ];
 
   for (const selector of friendLinkSelectors) {
@@ -116,12 +115,12 @@ async function findAndClickFriendLink(page) {
       const links = await page.locator(selector).all();
       for (const link of links) {
         const text = await link.textContent();
-        if (text && (text.includes('友链') || text.includes('链接') || text.includes('朋友') || text.includes('link'))) {
+        if (text && (text.includes('友链') || text.includes('链接') || text.includes('朋友'))) {
           const href = await link.getAttribute('href');
           if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
             console.log(`Found friend link: ${text.trim()} -> ${href}`);
             await link.click();
-            await page.waitForTimeout(2000);
+            await page.waitForTimeout(1500);
             await checkCloudflare(page);
             return href;
           }
@@ -145,7 +144,7 @@ async function findAndScrollToMengxuan(page) {
       if (count > 0) {
         console.log(`Found "${keyword}" on the page (${count} occurrences), scrolling to it...`);
         await element.scrollIntoViewIfNeeded();
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(500);
         return true;
       }
     } catch (e) {
@@ -155,7 +154,7 @@ async function findAndScrollToMengxuan(page) {
   return false;
 }
 
-async function takeScreenshot(url, index, total) {
+async function takeSingleScreenshot(url, index, total) {
   const browser = await chromium.launch();
   const context = await browser.newContext({
     viewport: { width: 1920, height: 1080 },
@@ -179,7 +178,8 @@ async function takeScreenshot(url, index, total) {
 
   try {
     console.log(`[${index}/${total}] Visiting: ${url}`);
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForTimeout(1000);
     await checkCloudflare(page);
 
     result.homepageScreenshot = path.basename(homepagePath);
@@ -202,10 +202,7 @@ async function takeScreenshot(url, index, total) {
         const currentUrl = page.url();
         console.log(`Navigated to: ${currentUrl}`);
 
-        await page.waitForTimeout(2000);
-        await checkCloudflare(page);
-
-        await page.reload({ waitUntil: 'networkidle', timeout: 60000 });
+        await page.waitForTimeout(1000);
         await checkCloudflare(page);
 
         result.homepageScreenshot = path.basename(homepagePath);
@@ -242,6 +239,21 @@ async function takeScreenshot(url, index, total) {
   }
 
   return result;
+}
+
+async function takeScreenshot(url, index, total) {
+  try {
+    return await takeSingleScreenshot(url, index, total);
+  } catch (e) {
+    return {
+      url,
+      status: 'error',
+      error: e.message,
+      homepageScreenshot: null,
+      mengxuanScreenshot: null,
+      mengxuanFound: false,
+    };
+  }
 }
 
 function getStatusLabel(status) {
@@ -353,6 +365,11 @@ function updateReportTemplate(reportData) {
   return content;
 }
 
+async function processBatch(urls, startIndex) {
+  const promises = urls.map((url, i) => takeScreenshot(url, startIndex + i, urls.length + startIndex));
+  return await Promise.all(promises);
+}
+
 async function main() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -373,9 +390,13 @@ async function main() {
   console.log(`Found ${urls.length} friend links to screenshot`);
 
   const results = [];
-  for (let i = 0; i < urls.length; i++) {
-    const result = await takeScreenshot(urls[i], i + 1, urls.length);
-    results.push(result);
+
+  for (let i = 0; i < urls.length; i += MAX_CONCURRENT) {
+    const batch = urls.slice(i, i + MAX_CONCURRENT);
+    console.log(`Processing batch ${Math.floor(i / MAX_CONCURRENT) + 1}: ${batch.length} sites in parallel`);
+    const batchResults = await processBatch(batch, i + 1);
+    results.push(...batchResults);
+    console.log(`Completed: ${Math.min(i + MAX_CONCURRENT, urls.length)}/${urls.length}`);
   }
 
   console.log('Generating report...');

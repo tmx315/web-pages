@@ -62,6 +62,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "Pr06a61y's Blog",
+		imgurl: "",
+		desc: "存活在互联网边缘...",
+		siteurl: "https://329817.xyz",
+		tags: ["友情"],
+		weight: 21,
+		enabled: true,
+	},
+	{
 		title: "涵云社区",
 		imgurl: "https://www.hanyor.com/view/img/logo.png",
 		desc: "涵云社区是一个集知识分享、互动交流和知识问答于一体的综合性在线社区平台",
@@ -77,7 +86,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "abab",
 		siteurl: "https://小何.top/",
 		tags: ["友情"],
-		weight: 19,
+		weight: 18,
 		enabled: true,
 	},
 	{
@@ -86,7 +95,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "专注MC内容制作与网站软件开发",
 		siteurl: "http://www.fgy.zhizhi.eu.org/",
 		tags: ["友情"],
-		weight: 18,
+		weight: 17,
 		enabled: true,
 	},
 	{
@@ -95,7 +104,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "欢迎访问",
 		siteurl: "https://chch.dpdns.org/",
 		tags: ["友情"],
-		weight: 17,
+		weight: 16,
 		enabled: true,
 	},
 	{
@@ -104,7 +113,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "愿你在峥嵘长青的世界里热忱不息",
 		siteurl: "https://ccwmoran.pages.dev",
 		tags: ["友情"],
-		weight: 16,
+		weight: 15,
 		enabled: true,
 	},
 	{
@@ -113,7 +122,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "每天分享不一样的知识内容",
 		siteurl: "https://blog.lzch.top",
 		tags: ["友情"],
-		weight: 15,
+		weight: 14,
 		enabled: true,
 	},
 	{
@@ -122,7 +131,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "便宜云服务器，挂机宝全在这",
 		siteurl: "https://idc.llvps.cn/",
 		tags: ["友情"],
-		weight: 14,
+		weight: 13,
 		enabled: true,
 	},
 	{
@@ -131,7 +140,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "专注于网络信息技术、AI、大数据、云存储等解决方案。",
 		siteurl: "https://www.steldim.cn/",
 		tags: ["友情"],
-		weight: 13,
+		weight: 12,
 		enabled: true,
 	},
 	{
@@ -139,15 +148,6 @@ export const friendsConfig: FriendLink[] = [
 		imgurl: "https://pic1.imgdb.cn/item/68fe309a3203f7be00a0c198.png",
 		desc: "欲买桂花同载酒，终不似，少年游",
 		siteurl: "https://blog.lris625.top/",
-		tags: ["友情"],
-		weight: 12,
-		enabled: true,
-	},
-	{
-		title: "Pr06a61y's Blog",
-		imgurl: "",
-		desc: "存活在互联网边缘...",
-		siteurl: "https://329817.xyz",
 		tags: ["友情"],
 		weight: 11,
 		enabled: true,

@@ -16,31 +16,75 @@ sourceLink: "https://blog.mxw2024.top/posts/friend-link-monitor/"
 
 ## 报告信息
 
-- **报告生成时间**: <!-- REPORT_TIME -->
-- **监控网站数量**: <!-- TOTAL_SITES -->
-- **可访问网站数量**: <!-- ACCESSIBLE_SITES -->
-- **无法访问网站数量**: <!-- INACCESSIBLE_SITES -->
+- **报告生成时间**: 2026/3/25 15:09:03
+- **监控网站数量**: 24
+- **可访问网站数量**: 8
+- **无法访问网站数量**: 4
 
 ## 访问状态概览
 
 | 状态 | 数量 |
 |------|------|
-| 正常访问 | <!-- NORMAL_COUNT --> |
-| 无法访问 | <!-- INACCESSIBLE_COUNT --> |
-| 证书错误 | <!-- CERT_ERROR_COUNT --> |
-| 超时 | <!-- TIMEOUT_COUNT --> |
+| 正常访问 | 8 |
+| 无法访问 | 4 |
+| 证书错误 | 4 |
+| 超时 | 0 |
 
 ## 详细报告
 
 <div class="overflow-x-auto">
 
-<!-- FRIEND_LINKS_TABLE -->
+<table>
+<tr><th>序号</th><th>网站</th><th>状态</th><th>主页</th><th>友链</th></tr>
+<tr><td>1</td><td><a href="https://www.mxw2024.top/" target="_blank">https://www.mxw2024.top/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_001_www_mxw2024_top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_001_www_mxw2024_top__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_001_www_mxw2024_top__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_001_www_mxw2024_top__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>2</td><td><a href="https://wmy2025.cn/" target="_blank">https://wmy2025.cn/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_002_wmy2025_cn__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_002_wmy2025_cn__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_002_wmy2025_cn__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_002_wmy2025_cn__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>3</td><td><a href="https://www.niyunkeji.top" target="_blank">https://www.niyunkeji.top</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_003_www_niyunkeji_top_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_003_www_niyunkeji_top_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>4</td><td><a href="https://www.nekt.qzz.io/" target="_blank">https://www.nekt.qzz.io/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>5</td><td><a href="https://www.hanyor.com/" target="_blank">https://www.hanyor.com/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_005_www_hanyor_com__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_005_www_hanyor_com__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>6</td><td><a href="https://小何.top/" target="_blank">https://小何.top/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_006____top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_006____top__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_006____top__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_006____top__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>7</td><td><a href="http://www.fgy.zhizhi.eu.org/" target="_blank">http://www.fgy.zhizhi.eu.org/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_007_www_fgy_zhizhi_eu_org__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_007_www_fgy_zhizhi_eu_org__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>8</td><td><a href="https://chch.dpdns.org/" target="_blank">https://chch.dpdns.org/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_008_chch_dpdns_org__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_008_chch_dpdns_org__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_008_chch_dpdns_org__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_008_chch_dpdns_org__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>9</td><td><a href="https://ccwmoran.pages.dev" target="_blank">https://ccwmoran.pages.dev</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_009_ccwmoran_pages_dev_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_009_ccwmoran_pages_dev_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>10</td><td><a href="https://blog.lzch.top" target="_blank">https://blog.lzch.top</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_010_blog_lzch_top_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_010_blog_lzch_top_homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_010_blog_lzch_top_mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_010_blog_lzch_top_mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>11</td><td><a href="https://idc.llvps.cn/" target="_blank">https://idc.llvps.cn/</a></td><td><span class="site-status status-error">❌ 无法访问</span></td><td><a href="/gallery/friends/2026-03-25_011_idc_llvps_cn__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_011_idc_llvps_cn__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>12</td><td><a href="https://www.steldim.cn/" target="_blank">https://www.steldim.cn/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_012_www_steldim_cn__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_012_www_steldim_cn__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_012_www_steldim_cn__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_012_www_steldim_cn__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+<tr><td>13</td><td><a href="https://blog.lris625.top/" target="_blank">https://blog.lris625.top/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_013_blog_lris625_top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_013_blog_lris625_top__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>14</td><td><a href="https://329817.xyz" target="_blank">https://329817.xyz</a></td><td><span class="site-status status-error">❌ 无法访问</span></td><td><a href="/gallery/friends/2026-03-25_014_329817_xyz_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_014_329817_xyz_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>15</td><td><a href="https://openaether.cn" target="_blank">https://openaether.cn</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_015_openaether_cn_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_015_openaether_cn_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>16</td><td><a href="https://blog.alittlehuaji.top/" target="_blank">https://blog.alittlehuaji.top/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_016_blog_alittlehuaji_top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_016_blog_alittlehuaji_top__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>17</td><td><a href="https://b.oxue.de" target="_blank">https://b.oxue.de</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_017_b_oxue_de_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_017_b_oxue_de_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>18</td><td><a href="https://miyo.hyperspark.cn" target="_blank">https://miyo.hyperspark.cn</a></td><td><span class="site-status status-error">❌ 无法访问</span></td><td><a href="/gallery/friends/2026-03-25_018_miyo_hyperspark_cn_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_018_miyo_hyperspark_cn_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>19</td><td><a href="http://imshimao.com/" target="_blank">http://imshimao.com/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_019_imshimao_com__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_019_imshimao_com__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>20</td><td><a href="https://inaline.net" target="_blank">https://inaline.net</a></td><td><span class="site-status status-error">❌ 无法访问</span></td><td><a href="/gallery/friends/2026-03-25_020_inaline_net_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_020_inaline_net_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>21</td><td><a href="https://zhouyi.blog" target="_blank">https://zhouyi.blog</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_021_zhouyi_blog_homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_021_zhouyi_blog_homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>22</td><td><a href="https://sakurain.net/" target="_blank">https://sakurain.net/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_022_sakurain_net__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_022_sakurain_net__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>23</td><td><a href="https://blog.iletter.top/" target="_blank">https://blog.iletter.top/</a></td><td><span class="site-status status-warn">⚠️ 未找到</span></td><td><a href="/gallery/friends/2026-03-25_023_blog_iletter_top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_023_blog_iletter_top__homepage.png" alt="主页" style="width:120px;"></a></td><td>-</td></tr>
+<tr><td>24</td><td><a href="https://www.lov3u.top/" target="_blank">https://www.lov3u.top/</a></td><td><span class="site-status status-ok">✅ 正常</span></td><td><a href="/gallery/friends/2026-03-25_024_www_lov3u_top__homepage.png" target="_blank"><img src="/gallery/friends/2026-03-25_024_www_lov3u_top__homepage.png" alt="主页" style="width:120px;"></a></td><td><a href="/gallery/friends/2026-03-25_024_www_lov3u_top__mengxuan.png" target="_blank"><img src="/gallery/friends/2026-03-25_024_www_lov3u_top__mengxuan.png" alt="友链" style="width:120px;"></a></td></tr>
+</table>
 
 </div>
 
 ## 无法访问的网站
 
-<!-- INACCESSIBLE_LIST -->
+<ul>
+<li><strong>https://idc.llvps.cn/</strong> - 其他错误<br><small>page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://idc.llvps.cn/", waiting until "domcontentloaded"
+</small></li>
+<li><strong>https://329817.xyz</strong> - 其他错误<br><small>page.goto: net::ERR_NAME_NOT_RESOLVED at https://329817.xyz/
+Call log:
+  - navigating to "https://329817.xyz/", waiting until "domcontentloaded"
+</small></li>
+<li><strong>https://miyo.hyperspark.cn</strong> - 其他错误<br><small>page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://miyo.hyperspark.cn/", waiting until "domcontentloaded"
+</small></li>
+<li><strong>https://inaline.net</strong> - 其他错误<br><small>page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://inaline.net/", waiting until "domcontentloaded"
+</small></li>
+</ul>
+
 
 ## 截图预览
 
@@ -48,11 +92,119 @@ sourceLink: "https://blog.mxw2024.top/posts/friend-link-monitor/"
 
 ### 正常访问的网站截图
 
-<!-- SCREENSHOTS_NORMAL -->
+<div class="screenshot-grid">
+<div class="screenshot-item">
+<p><strong><a href="https://www.mxw2024.top/" target="_blank">https://www.mxw2024.top/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_001_www_mxw2024_top__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_001_www_mxw2024_top__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://wmy2025.cn/" target="_blank">https://wmy2025.cn/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_002_wmy2025_cn__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_002_wmy2025_cn__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://www.nekt.qzz.io/" target="_blank">https://www.nekt.qzz.io/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_004_www_nekt_qzz_io__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://小何.top/" target="_blank">https://小何.top/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_006____top__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_006____top__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://chch.dpdns.org/" target="_blank">https://chch.dpdns.org/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_008_chch_dpdns_org__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_008_chch_dpdns_org__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://blog.lzch.top" target="_blank">https://blog.lzch.top</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_010_blog_lzch_top_homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_010_blog_lzch_top_mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://www.steldim.cn/" target="_blank">https://www.steldim.cn/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_012_www_steldim_cn__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_012_www_steldim_cn__mengxuan.png" alt="友链截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://www.lov3u.top/" target="_blank">https://www.lov3u.top/</a></strong></p>
+<p><small>主页</small></p><img src="/gallery/friends/2026-03-25_024_www_lov3u_top__homepage.png" alt="主页截图">
+<p><small>友链</small></p><img src="/gallery/friends/2026-03-25_024_www_lov3u_top__mengxuan.png" alt="友链截图">
+</div>
+</div>
+
 
 ### 存在问题的网站截图
 
-<!-- SCREENSHOTS_ERROR -->
+<div class="screenshot-grid">
+<div class="screenshot-item">
+<p><strong><a href="https://www.niyunkeji.top" target="_blank">https://www.niyunkeji.top</a></strong></p>
+<img src="/gallery/friends/2026-03-25_003_www_niyunkeji_top_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://www.hanyor.com/" target="_blank">https://www.hanyor.com/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_005_www_hanyor_com__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="http://www.fgy.zhizhi.eu.org/" target="_blank">http://www.fgy.zhizhi.eu.org/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_007_www_fgy_zhizhi_eu_org__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://ccwmoran.pages.dev" target="_blank">https://ccwmoran.pages.dev</a></strong></p>
+<img src="/gallery/friends/2026-03-25_009_ccwmoran_pages_dev_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://idc.llvps.cn/" target="_blank">https://idc.llvps.cn/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_011_idc_llvps_cn__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://blog.lris625.top/" target="_blank">https://blog.lris625.top/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_013_blog_lris625_top__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://329817.xyz" target="_blank">https://329817.xyz</a></strong></p>
+<img src="/gallery/friends/2026-03-25_014_329817_xyz_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://openaether.cn" target="_blank">https://openaether.cn</a></strong></p>
+<img src="/gallery/friends/2026-03-25_015_openaether_cn_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://blog.alittlehuaji.top/" target="_blank">https://blog.alittlehuaji.top/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_016_blog_alittlehuaji_top__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://b.oxue.de" target="_blank">https://b.oxue.de</a></strong></p>
+<img src="/gallery/friends/2026-03-25_017_b_oxue_de_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://miyo.hyperspark.cn" target="_blank">https://miyo.hyperspark.cn</a></strong></p>
+<img src="/gallery/friends/2026-03-25_018_miyo_hyperspark_cn_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="http://imshimao.com/" target="_blank">http://imshimao.com/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_019_imshimao_com__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://inaline.net" target="_blank">https://inaline.net</a></strong></p>
+<img src="/gallery/friends/2026-03-25_020_inaline_net_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://zhouyi.blog" target="_blank">https://zhouyi.blog</a></strong></p>
+<img src="/gallery/friends/2026-03-25_021_zhouyi_blog_homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://sakurain.net/" target="_blank">https://sakurain.net/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_022_sakurain_net__homepage.png" alt="截图">
+</div>
+<div class="screenshot-item">
+<p><strong><a href="https://blog.iletter.top/" target="_blank">https://blog.iletter.top/</a></strong></p>
+<img src="/gallery/friends/2026-03-25_023_blog_iletter_top__homepage.png" alt="截图">
+</div>
+</div>
+
 
 ## 报告说明
 

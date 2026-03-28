@@ -63,7 +63,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "芒果网页导航",
-		imgurl: "http://wp.mgznb.cn/view.php/4c70feec711b57adbc34d2a25764d0de.png",
+		imgurl: "http://mgtc.mangguoya.xyz/i/2026/03/28/nv8p70.png",
 		desc: "无广告简洁上网导航",
 		siteurl: "https://mgznb.cn/",
 		tags: ["友情"],
@@ -72,7 +72,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "芒果科技",
-		imgurl: "http://wp.mgznb.cn/view.php/4c70feec711b57adbc34d2a25764d0de.png",
+		imgurl: "http://mgtc.mangguoya.xyz/i/2026/03/28/nv8p70.png",
 		desc: "芒果个人引导主页",
 		siteurl: "http://mangguoya.xyz/",
 		tags: ["友情"],

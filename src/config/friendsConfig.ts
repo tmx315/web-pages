@@ -80,6 +80,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "小慧博客",
+		imgurl: "https://blogoss.itxiaohui.top/logo%20-uhlgnmrf.png",
+		desc: "简洁、美观-您身边的技术博客",
+		siteurl: "https://www.itxiaohui.top/",
+		tags: ["友情"],
+		weight: 23,
+		enabled: true,
+	},
+	{
 		title: "CCWMORAN慕然科技",
 		imgurl: "https://gpo.saobby.com/i/XlQ1PmuU5UPnej02.webp",
 		desc: "愿你在峥嵘长青的世界里热忱不息",

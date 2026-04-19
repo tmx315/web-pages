@@ -80,6 +80,15 @@ export const friendsConfig: FriendLink[] = [
 		enabled: true,
 	},
 	{
+		title: "J的个人博客",
+		imgurl: "https://blog.jsoftstudio.top/css/all/favicon.ico",
+		desc: "分享技术，记录生活",
+		siteurl: "https://blog.jsoftstudio.top/",
+		tags: ["友情"],
+		weight: 24,
+		enabled: true,
+	},
+	{
 		title: "小慧博客",
 		imgurl: "https://blogoss.itxiaohui.top/logo%20-uhlgnmrf.png",
 		desc: "简洁、美观-您身边的技术博客",
